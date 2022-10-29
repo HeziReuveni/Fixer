@@ -27,7 +27,12 @@ const WelcomeMessage = () => {
         <GiStarMedal />
 
         <Fade right>
-          <Link smooth={true} duration={700} to="SignUpAndLoginPage">
+          <Link
+            smooth={true}
+            offset={300}
+            duration={700}
+            to="SignUpAndLoginPage"
+          >
             <ButtonHomePage
               onClick={() => {
                 setLoginPage(true);

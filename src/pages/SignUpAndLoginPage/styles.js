@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const ContainerConnectPage = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  min-height: 70vh;
+  height: 100vh;
   width: 100%;
 `;
 
