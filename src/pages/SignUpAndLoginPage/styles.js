@@ -4,7 +4,7 @@ export const ContainerConnectPage = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
 `;
 
@@ -16,6 +16,7 @@ export const LoginForm = styled.form`
   height: 25rem;
   border-radius: 30px;
   width: 85vw;
+  margin-bottom: 2rem;
 `;
 
 export const ContainerTitleForm = styled.div`
@@ -37,7 +38,7 @@ export const ContainerInput = styled.div`
   background: none;
   width: 100%;
   height: 5vh;
-  min-height: 2rem;
+  min-height: 3rem;
   border: 2px solid aliceblue;
   border-radius: 10px;
   padding: 0.3rem;
@@ -92,4 +93,17 @@ export const ButtonLoginPage = styled.button`
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
+`;
+
+export const SideLine = styled.span`
+  border-left: 2px solid aliceblue;
+  height: 2rem;
+  border-radius: 20px;
+`;
+
+export const ContainerIconAndLind = styled.div`
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 `;

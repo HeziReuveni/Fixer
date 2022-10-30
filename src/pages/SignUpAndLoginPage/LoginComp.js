@@ -6,6 +6,8 @@ import {
   ContainerInput,
   InputForm,
   ButtonLoginPage,
+  ContainerIconAndLind,
+  SideLine,
 } from "./styles";
 import { FaUser, FaPhone } from "react-icons/fa";
 import { MdOutlinePassword } from "react-icons/md";
@@ -22,11 +24,17 @@ const LoginComp = () => {
           <TitleForm>התחברות</TitleForm>
           <ContainerInput>
             <InputForm dir="rtl" type="phone" />
-            <FaPhone size={20} color="aliceblue" />
+            <ContainerIconAndLind>
+              <SideLine />
+              <FaPhone size={20} color="aliceblue" />
+            </ContainerIconAndLind>
           </ContainerInput>
           <ContainerInput>
             <InputForm dir="rtl" type="password" />
-            <MdOutlinePassword size={25} color="aliceblue" />
+            <ContainerIconAndLind>
+              <SideLine />
+              <MdOutlinePassword size={25} color="aliceblue" />
+            </ContainerIconAndLind>
           </ContainerInput>
           <div>
             <ButtonLoginPage>התחבר</ButtonLoginPage>
