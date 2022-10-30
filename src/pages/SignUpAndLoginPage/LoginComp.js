@@ -1,11 +1,11 @@
 import React from "react";
 import {
-  LoginForm,
+  Form,
   TitleForm,
   ContainerTitleForm,
   ContainerInput,
   InputForm,
-  ButtonLoginPage,
+  ButtonLoginAndSignUpPage,
   ContainerIconAndLind,
   SideLine,
 } from "./styles";
@@ -17,7 +17,7 @@ const LoginComp = () => {
   return (
     <div>
       <Fade top>
-        <LoginForm>
+        <Form>
           <ContainerTitleForm>
             <FaUser color="aliceblue" size={30} />
           </ContainerTitleForm>
@@ -37,9 +37,9 @@ const LoginComp = () => {
             </ContainerIconAndLind>
           </ContainerInput>
           <div>
-            <ButtonLoginPage>התחבר</ButtonLoginPage>
+            <ButtonLoginAndSignUpPage>התחבר</ButtonLoginAndSignUpPage>
           </div>
-        </LoginForm>
+        </Form>
       </Fade>
     </div>
   );

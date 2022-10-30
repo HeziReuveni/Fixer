@@ -7,6 +7,7 @@ import singUpGif from "./gifs/117764-sign-up.gif";
 import WaveBorder from "./WaveBorder";
 import ServiceComp from "./ServiceComp";
 import LoginComp from "./LoginComp";
+import SignUpComp from "./SignUpComp";
 
 const SignUpAndLoginPage = () => {
   const { loginPage, signupPage, firstView } = useContext(UserContext);
@@ -30,7 +31,7 @@ const SignUpAndLoginPage = () => {
       <ContainerConnectPage className="SignUpAndLoginPage">
         {firstView && <ServiceComp />}
         {loginPage && <LoginComp />}
-        {signupPage && <div>Sigh Up Page</div>}
+        {signupPage && <SignUpComp />}
       </ContainerConnectPage>
       <WaveBorder upperColor="#322d6b" lowerColor="white" />
       <ContainerBottomService>

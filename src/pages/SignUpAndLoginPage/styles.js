@@ -8,7 +8,7 @@ export const ContainerConnectPage = styled.div`
   width: 100%;
 `;
 
-export const LoginForm = styled.form`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,6 +56,37 @@ export const InputForm = styled.input`
   outline: none;
   border: none;
   background: none;
+  ::placeholder {
+    color: aliceblue;
+    letter-spacing: 1px;
+  }
+`;
+
+export const InputImageFile = styled.input`
+  color: #322d6b;
+  ::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  ::before {
+    content: "בחר תמונה (לא חובה)";
+    display: inline-block;
+    color: aliceblue;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+
+    font-size: 10pt;
+  }
+`;
+
+export const ContainerInputImageFile = styled(ContainerInput)`
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  &:hover {
+    background: none;
+  }
 `;
 
 export const ContainerBottomService = styled.div`
@@ -79,7 +110,7 @@ export const ContainerServiceComp = styled.div`
   width: 100%;
 `;
 
-export const ButtonLoginPage = styled.button`
+export const ButtonLoginAndSignUpPage = styled.button`
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: bold;
   letter-spacing: 2px;
