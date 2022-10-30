@@ -86,7 +86,7 @@ const SignUpComp = () => {
           <ContainerInputImageFile>
             <InputImageFile
               style={{
-                width: "7.3rem",
+                width: "7.5rem",
               }}
               type="file"
             />

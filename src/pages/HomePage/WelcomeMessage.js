@@ -41,7 +41,12 @@ const WelcomeMessage = () => {
           </Link>
         </Fade>
         <Fade left>
-          <Link smooth={true} duration={700} to="SignUpAndLoginPage">
+          <Link
+            smooth={true}
+            offset={100}
+            duration={700}
+            to="SignUpAndLoginPage"
+          >
             <ButtonHomePage
               onClick={() => {
                 setSignupPage(true);
