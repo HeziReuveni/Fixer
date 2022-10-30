@@ -20,7 +20,7 @@ export const ContainerWelcomeMessage = styled.div`
 export const ContainerTextMessage = styled.div`
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 1.3rem;
-  height: 20rem;
+  height: 15rem;
   width: 100%;
   color: aliceblue;
   text-align: center;
