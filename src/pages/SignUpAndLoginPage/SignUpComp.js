@@ -96,7 +96,7 @@ const SignUpComp = () => {
             </ContainerIconAndLind>
           </ContainerInputImageFile>
           <div>
-            <ButtonLoginAndSignUpPage>התחבר</ButtonLoginAndSignUpPage>
+            <ButtonLoginAndSignUpPage>הירשם</ButtonLoginAndSignUpPage>
           </div>
         </Form>
       </Fade>
