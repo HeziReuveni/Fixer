@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Form,
   TitleForm,
@@ -19,12 +19,41 @@ import { MdOutlinePassword } from "react-icons/md";
 import { Fade } from "react-reveal";
 
 const SignUpComp = () => {
+  const [formDataSignUp, setFormDataSignUp] = useState({
+    fullName: "",
+    phoneNumber: "",
+    password: "",
+    email: "",
+    idNumber: "",
+    imageUrl: "",
+  });
+
+  const { fullName, phoneNumber, password, email, idNumber, imageUrl } =
+    formDataSignUp;
+
+  const onChange = (e) => {
+    e.preventDefault();
+    setFormDataSignUp({
+      ...formDataSignUp,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleDetailsToSignUp = (e) => {
+    e.preventDefault();
+    console.log(formDataSignUp);
+  };
+
+  const [image, setImage] = useState();
+  const onChangeImage = (e) => setImage(URL.createObjectURL(e.target.files[0]));
+  console.log(image);
   return (
     <div>
       <Fade top>
         <Form
+          onSubmit={handleDetailsToSignUp}
           style={{
-            height: "35rem",
+            height: "38rem",
           }}
         >
           <ContainerTitleForm>
@@ -33,6 +62,25 @@ const SignUpComp = () => {
           <TitleForm>הרשמה</TitleForm>
           <ContainerInput>
             <InputForm
+              onChange={onChange}
+              name="fullName"
+              value={fullName}
+              style={{
+                textAlign: "right",
+              }}
+              type="name"
+              placeholder="הזן שם מלא"
+            />
+            <ContainerIconAndLind>
+              <SideLine />
+              <FaPhone size={20} color="aliceblue" />
+            </ContainerIconAndLind>
+          </ContainerInput>
+          <ContainerInput>
+            <InputForm
+              onChange={onChange}
+              name="phoneNumber"
+              value={phoneNumber}
               style={{
                 textAlign: "right",
               }}
@@ -46,6 +94,9 @@ const SignUpComp = () => {
           </ContainerInput>
           <ContainerInput>
             <InputForm
+              onChange={onChange}
+              name="password"
+              value={password}
               style={{
                 textAlign: "right",
               }}
@@ -59,6 +110,9 @@ const SignUpComp = () => {
           </ContainerInput>
           <ContainerInput>
             <InputForm
+              onChange={onChange}
+              name="email"
+              value={email}
               style={{
                 textAlign: "right",
               }}
@@ -72,6 +126,9 @@ const SignUpComp = () => {
           </ContainerInput>
           <ContainerInput>
             <InputForm
+              onChange={onChange}
+              name="idNumber"
+              value={idNumber}
               style={{
                 textAlign: "right",
               }}
@@ -85,8 +142,11 @@ const SignUpComp = () => {
           </ContainerInput>
           <ContainerInputImageFile>
             <InputImageFile
+              onChange={(e) => onChangeImage(e)}
+              name="imageUrl"
+              value={imageUrl}
               style={{
-                width: "7.5rem",
+                width: "7.6rem",
               }}
               type="file"
             />
@@ -100,6 +160,7 @@ const SignUpComp = () => {
           </div>
         </Form>
       </Fade>
+      {image && <img src={image} alt="The current file" />}
     </div>
   );
 };
