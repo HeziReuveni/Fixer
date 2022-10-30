@@ -10,17 +10,17 @@ export const ContainerHomePage = styled.div`
 
 export const ContainerWelcomeMessage = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: stretch;
   width: 90%;
   height: 25rem;
 `;
 
 export const ContainerTextMessage = styled.div`
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 1.3rem;
-  height: 15rem;
+  font-size: 1.1rem;
+  height: 10rem;
   width: 100%;
   color: aliceblue;
   text-align: center;
@@ -36,6 +36,7 @@ export const ButtonHomePage = styled.button`
   color: aliceblue;
   font-size: 1.1rem;
   border: 1px solid aliceblue;
+  margin-top: 1rem;
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
