@@ -7,7 +7,6 @@ import {
 } from "./styles";
 import { Fade } from "react-reveal";
 import { Link } from "react-scroll";
-import { GiStarMedal } from "react-icons/gi";
 
 const WelcomeMessage = () => {
   const { setLoginPage, setSignupPage, setFirstView } = useContext(UserContext);
@@ -23,9 +22,6 @@ const WelcomeMessage = () => {
             בדיגיטל.
           </ContainerTextMessage>
         </Fade>
-
-        <GiStarMedal />
-
         <Fade right>
           <Link
             smooth={true}
@@ -45,7 +41,6 @@ const WelcomeMessage = () => {
           </Link>
         </Fade>
         <Fade left>
-          <br></br>
           <Link smooth={true} duration={700} to="SignUpAndLoginPage">
             <ButtonHomePage
               onClick={() => {
