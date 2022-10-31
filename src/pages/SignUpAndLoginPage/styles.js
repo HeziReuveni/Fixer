@@ -154,10 +154,10 @@ export const ContainerPopUpValidation = styled.div`
 `;
 
 export const FixIcon = styled.div`
-  position: absolute;
+  position: fixed;
   top: 10px;
   right: 10px;
-  color: aliceblue;
+  z-index: 2;
 `;
 
 export const FormToValidation = styled.div`

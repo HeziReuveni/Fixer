@@ -14,7 +14,12 @@ import { Zoom, Fade } from "react-reveal";
 const PopUpValidation = ({ setPopUp }) => {
   return (
     <div>
-      <ContainerPopUpValidation onClick={() => setPopUp(false)}>
+      <FixIcon>
+        <Zoom>
+          <FiX size={20} color="aliceblue" onClick={() => setPopUp(false)} />
+        </Zoom>
+      </FixIcon>
+      <ContainerPopUpValidation>
         <Zoom top>
           <div
             style={{
