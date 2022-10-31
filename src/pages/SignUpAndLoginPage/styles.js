@@ -166,7 +166,7 @@ export const FormToValidation = styled.div`
   align-items: center;
   justify-content: space-evenly;
   width: 80%;
-  height: 50vh;
+  min-height: 20rem;
   background-color: rgba(255, 255, 255, 0.7);
 `;
 
