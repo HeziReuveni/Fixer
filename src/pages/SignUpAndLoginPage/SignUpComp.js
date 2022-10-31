@@ -14,22 +14,24 @@ import {
 import { FaUserPlus, FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { BsImageFill } from "react-icons/bs";
-import { FaRegIdCard } from "react-icons/fa";
+import { FaRegIdCard, FaUserTie } from "react-icons/fa";
 import { MdOutlinePassword } from "react-icons/md";
 import { Fade } from "react-reveal";
+import { signUp } from "../apis/auth";
+import PopUpValidation from "./PopUpValidation";
 
 const SignUpComp = () => {
+  const [popUp, setPopUp] = useState(false);
+  const [imageUrl, setImageUrl] = useState();
   const [formDataSignUp, setFormDataSignUp] = useState({
     fullName: "",
     phoneNumber: "",
     password: "",
     email: "",
     idNumber: "",
-    imageUrl: "",
   });
 
-  const { fullName, phoneNumber, password, email, idNumber, imageUrl } =
-    formDataSignUp;
+  const { fullName, phoneNumber, password, email, idNumber } = formDataSignUp;
 
   const onChange = (e) => {
     e.preventDefault();
@@ -41,14 +43,24 @@ const SignUpComp = () => {
 
   const handleDetailsToSignUp = (e) => {
     e.preventDefault();
-    console.log(formDataSignUp);
+    if (fullName && phoneNumber && password && email && idNumber) {
+      setPopUp(true);
+    } else {
+      setPopUp(false);
+    }
+    // signUp(
+    //   formDataSignUp.fullName,
+    //   formDataSignUp.phoneNumber,
+    //   formDataSignUp.password,
+    //   formDataSignUp.email,
+    //   formDataSignUp.idNumber,
+    //   imageUrl
+    // );
   };
 
-  const [image, setImage] = useState();
-  const onChangeImage = (e) => setImage(URL.createObjectURL(e.target.files[0]));
-  console.log(image);
   return (
     <div>
+      {popUp && <PopUpValidation setPopUp={setPopUp} />}
       <Fade top>
         <Form
           onSubmit={handleDetailsToSignUp}
@@ -62,29 +74,29 @@ const SignUpComp = () => {
           <TitleForm>הרשמה</TitleForm>
           <ContainerInput>
             <InputForm
+              required
               onChange={onChange}
               name="fullName"
               value={fullName}
               style={{
                 textAlign: "right",
               }}
-              type="name"
               placeholder="הזן שם מלא"
             />
             <ContainerIconAndLind>
               <SideLine />
-              <FaPhone size={20} color="aliceblue" />
+              <FaUserTie size={20} color="aliceblue" />
             </ContainerIconAndLind>
           </ContainerInput>
           <ContainerInput>
             <InputForm
+              required
               onChange={onChange}
               name="phoneNumber"
               value={phoneNumber}
               style={{
                 textAlign: "right",
               }}
-              type="phone"
               placeholder="מספר פלאפון"
             />
             <ContainerIconAndLind>
@@ -94,6 +106,7 @@ const SignUpComp = () => {
           </ContainerInput>
           <ContainerInput>
             <InputForm
+              required
               onChange={onChange}
               name="password"
               value={password}
@@ -101,7 +114,7 @@ const SignUpComp = () => {
                 textAlign: "right",
               }}
               type="password"
-              placeholder="סיסמה"
+              placeholder="בחר סיסמה"
             />
             <ContainerIconAndLind>
               <SideLine />
@@ -110,13 +123,13 @@ const SignUpComp = () => {
           </ContainerInput>
           <ContainerInput>
             <InputForm
+              required
               onChange={onChange}
               name="email"
               value={email}
               style={{
                 textAlign: "right",
               }}
-              type="email"
               placeholder="אימייל"
             />
             <ContainerIconAndLind>
@@ -126,6 +139,7 @@ const SignUpComp = () => {
           </ContainerInput>
           <ContainerInput>
             <InputForm
+              required
               onChange={onChange}
               name="idNumber"
               value={idNumber}
@@ -142,9 +156,9 @@ const SignUpComp = () => {
           </ContainerInput>
           <ContainerInputImageFile>
             <InputImageFile
-              onChange={(e) => onChangeImage(e)}
-              name="imageUrl"
-              value={imageUrl}
+              onChange={(e) =>
+                setImageUrl(URL.createObjectURL(e.target.files[0]))
+              }
               style={{
                 width: "7.6rem",
               }}
@@ -160,7 +174,6 @@ const SignUpComp = () => {
           </div>
         </Form>
       </Fade>
-      {image && <img src={image} alt="The current file" />}
     </div>
   );
 };

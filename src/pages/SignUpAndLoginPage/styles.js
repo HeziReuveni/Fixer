@@ -57,7 +57,7 @@ export const InputForm = styled.input`
   border: none;
   background: none;
   ::placeholder {
-    color: aliceblue;
+    color: antiquewhite;
     letter-spacing: 1px;
   }
 `;
@@ -70,7 +70,7 @@ export const InputImageFile = styled.input`
   ::before {
     content: "בחר תמונה (לא חובה)";
     display: inline-block;
-    color: aliceblue;
+    color: antiquewhite;
     outline: none;
     white-space: nowrap;
     -webkit-user-select: none;
@@ -137,4 +137,76 @@ export const ContainerIconAndLind = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+`;
+
+export const ContainerPopUpValidation = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+  transition: 1s;
+`;
+
+export const FixIcon = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: aliceblue;
+`;
+
+export const FormToValidation = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 80%;
+  height: 50vh;
+  background-color: rgba(255, 255, 255, 0.7);
+`;
+
+export const ContainerTextMessage = styled.div`
+  text-align: center;
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+  width: 90%;
+  color: #393191;
+  font-weight: bold;
+`;
+
+export const InputValidation = styled.input`
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #393191;
+  border-radius: 5px;
+  color: #393191;
+  padding: 8px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  outline: none;
+  ::placeholder {
+    color: #393191;
+  }
+`;
+
+export const ButtonValidation = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid green;
+  color: green;
+  width: 40%;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
 `;

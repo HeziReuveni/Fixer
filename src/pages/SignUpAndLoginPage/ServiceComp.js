@@ -12,6 +12,7 @@ const ServiceComp = () => {
           style={{
             transform: "rotate(3.142rad)",
           }}
+          alt="arrowImg"
           width="110px"
           src={arrowGif}
         />

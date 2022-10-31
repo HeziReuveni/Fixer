@@ -8,6 +8,7 @@ import WaveBorder from "./WaveBorder";
 import ServiceComp from "./ServiceComp";
 import LoginComp from "./LoginComp";
 import SignUpComp from "./SignUpComp";
+import PopUpValidation from "./PopUpValidation";
 
 const SignUpAndLoginPage = () => {
   const { loginPage, signupPage, firstView } = useContext(UserContext);

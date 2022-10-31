@@ -22,9 +22,6 @@ const styles = {
   },
 };
 
-/**
- *  https://codepen.io/csspoints/pen/WNeOEqd
- */
 function WaveBorder(props) {
   const id = String(Math.random());
   const {

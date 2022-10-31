@@ -23,14 +23,27 @@ const LoginComp = () => {
           </ContainerTitleForm>
           <TitleForm>התחברות</TitleForm>
           <ContainerInput>
-            <InputForm dir="rtl" type="phone" />
+            <InputForm
+              style={{
+                textAlign: "right",
+              }}
+              placeholder="מספר פלאפון"
+              type="phone"
+            />
             <ContainerIconAndLind>
               <SideLine />
               <FaPhone size={20} color="aliceblue" />
             </ContainerIconAndLind>
           </ContainerInput>
           <ContainerInput>
-            <InputForm dir="rtl" type="password" />
+            <InputForm
+              style={{
+                textAlign: "right",
+              }}
+              placeholder="סיסמה"
+              dir="rtl"
+              type="password"
+            />
             <ContainerIconAndLind>
               <SideLine />
               <MdOutlinePassword size={25} color="aliceblue" />
