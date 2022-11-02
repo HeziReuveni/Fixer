@@ -7,7 +7,7 @@ import SignUpAndLoginPage from "../SignUpAndLoginPage/SignUpAndLoginPage";
 const HomePage = () => {
   return (
     <div className="home">
-      <ParticlesBg type="fountain" num={30} bg={true} color="#87BCDE" />
+      <ParticlesBg type="cobweb" num={30} bg={true} color="#87BCDE" />
       <ContainerHomePage>
         <WelcomeMessage />
       </ContainerHomePage>
