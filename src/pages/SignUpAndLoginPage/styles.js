@@ -154,20 +154,31 @@ export const ContainerPopUpValidation = styled.div`
 `;
 
 export const FixIcon = styled.div`
+  display: ${(props) => (props.resultValidation ? "none" : "flex")};
   position: fixed;
   top: 10px;
   right: 10px;
   z-index: 2;
 `;
 
-export const FormToValidation = styled.div`
-  display: flex;
+export const FormToValidation = styled.form`
+  display: ${(props) => (props.resultValidation ? "none" : "flex")};
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   width: 80%;
   min-height: 20rem;
   background-color: rgba(255, 255, 255, 0.7);
+`;
+
+export const MessageSuccessfully = styled.div`
+  display: ${(props) => (props.resultValidation ? "flex" : "none")};
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 60vw;
+  min-height: 10rem;
+  background-color: rgba(25, 255, 255, 0.7);
 `;
 
 export const ContainerTextMessage = styled.div`

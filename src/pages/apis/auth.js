@@ -21,3 +21,23 @@ export const signUp = async (
   );
   console.log(response);
 };
+
+export const sendSms = async (phoneNumber) => {
+  await Axios.post(`${process.env.REACT_APP_BASE_URL}/send-sms`, {
+    phoneNumber,
+  });
+};
+
+export const checkOptCode = async (userCode) => {
+  try {
+    const response = await Axios.post(
+      `${process.env.REACT_APP_BASE_URL}/check-code`,
+      {
+        userCode,
+      }
+    );
+    return true;
+  } catch (error) {
+    return false;
+  }
+};

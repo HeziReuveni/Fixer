@@ -17,7 +17,8 @@ import { BsImageFill } from "react-icons/bs";
 import { FaRegIdCard, FaUserTie } from "react-icons/fa";
 import { MdOutlinePassword } from "react-icons/md";
 import { Fade } from "react-reveal";
-import { signUp } from "../apis/auth";
+import { sendSms } from "../apis/auth";
+
 import PopUpValidation from "./PopUpValidation";
 
 const SignUpComp = () => {
@@ -45,22 +46,25 @@ const SignUpComp = () => {
     e.preventDefault();
     if (fullName && phoneNumber && password && email && idNumber) {
       setPopUp(true);
+      sendSms(phoneNumber);
     } else {
       setPopUp(false);
     }
-    // signUp(
-    //   formDataSignUp.fullName,
-    //   formDataSignUp.phoneNumber,
-    //   formDataSignUp.password,
-    //   formDataSignUp.email,
-    //   formDataSignUp.idNumber,
-    //   imageUrl
-    // );
   };
 
   return (
     <div>
-      {popUp && <PopUpValidation setPopUp={setPopUp} />}
+      {popUp && (
+        <PopUpValidation
+          fullName={fullName}
+          phoneNumber={phoneNumber}
+          password={password}
+          email={email}
+          idNumber={idNumber}
+          imageUrl={imageUrl}
+          setPopUp={setPopUp}
+        />
+      )}
       <Fade top>
         <Form
           onSubmit={handleDetailsToSignUp}
