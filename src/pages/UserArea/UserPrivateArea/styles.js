@@ -33,6 +33,14 @@ export const ContainerTopNavbar = styled.div`
   font-family: "Open Sans", sans-serif;
 `;
 
+export const ContainerCenterContent = styled.div`
+  width: 100%;
+  height: 51vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const ContainerIconBottomNavbar = styled.div`
   display: flex;
   align-items: center;

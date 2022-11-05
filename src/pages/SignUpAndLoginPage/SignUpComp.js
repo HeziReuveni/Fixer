@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Form,
   TitleForm,
@@ -18,6 +18,7 @@ import { FaRegIdCard, FaUserTie } from "react-icons/fa";
 import { MdOutlinePassword } from "react-icons/md";
 import { Fade } from "react-reveal";
 import { sendSms } from "../apis/auth";
+import { UserContext } from "../context/context";
 
 import PopUpValidation from "./PopUpValidation";
 
@@ -31,7 +32,7 @@ const SignUpComp = () => {
     email: "",
     idNumber: "",
   });
-
+  const { setName, setImgUrl } = useContext(UserContext);
   const { fullName, phoneNumber, password, email, idNumber } = formDataSignUp;
 
   const onChange = (e) => {
@@ -45,6 +46,8 @@ const SignUpComp = () => {
   const handleDetailsToSignUp = (e) => {
     e.preventDefault();
     if (fullName && phoneNumber && password && email && idNumber) {
+      setImgUrl(imageUrl);
+      setName(fullName);
       setPopUp(true);
       sendSms(phoneNumber);
     } else {

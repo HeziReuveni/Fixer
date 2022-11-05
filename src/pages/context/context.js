@@ -6,6 +6,8 @@ const UserContextProvider = ({ children }) => {
   const [loginPage, setLoginPage] = useState(false);
   const [signupPage, setSignupPage] = useState(false);
   const [firstView, setFirstView] = useState(true);
+  const [name, setName] = useState("");
+  const [imgUrl, setImgUrl] = useState("");
 
   return (
     <UserContext.Provider
@@ -16,6 +18,10 @@ const UserContextProvider = ({ children }) => {
         setSignupPage,
         setFirstView,
         firstView,
+        setName,
+        name,
+        imgUrl,
+        setImgUrl,
       }}
     >
       {children}
