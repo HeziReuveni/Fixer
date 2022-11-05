@@ -7,10 +7,14 @@ import {
   InputValidation,
   ButtonValidation,
   MessageSuccessfully,
+  ContainerContentPopUp,
+  ParaError,
 } from "./styles";
 import { FiX } from "react-icons/fi";
+import { BsPatchCheckFill } from "react-icons/bs";
 import { MdPhonelinkLock } from "react-icons/md";
-import { Zoom } from "react-reveal";
+import { TiWarning } from "react-icons/ti";
+import { Zoom, Fade } from "react-reveal";
 import { checkOptCode } from "../apis/auth";
 import { signUp } from "../apis/auth";
 import { useHistory } from "react-router-dom";
@@ -27,19 +31,27 @@ const PopUpValidation = ({
 }) => {
   const [optCode, setOptCode] = useState();
   const [resultValidation, setResultValidation] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
   const history = useHistory();
 
   const handleSendOptCode = async (e) => {
     e.preventDefault();
-    const result = await checkOptCode(optCode);
-    if (result) {
-      signUp(fullName, phoneNumber, password, email, idNumber, imageUrl);
+    if (optCode === undefined) {
       setTimeout(() => {
         history.push("/user-area");
       }, 2000);
+      setResultValidation(true);
+      setErrorMessage(false);
     }
-    setResultValidation(result);
-    console.log(result);
+    // const result = await checkOptCode(optCode);
+    // if (result) {
+    //   signUp(fullName, phoneNumber, password, email, idNumber, imageUrl);
+    //   setTimeout(() => {
+    //     history.push("/user-area");
+    //   }, 2000);
+    // }
+    // setResultValidation(result);
+    // setErrorMessage(!result);
   };
 
   return (
@@ -52,15 +64,16 @@ const PopUpValidation = ({
         </FixIcon>
         <ContainerPopUpValidation>
           <Zoom top>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
+            <ContainerContentPopUp>
               <MessageSuccessfully resultValidation={resultValidation}>
-                התחברת בהצלחה
+                <Zoom>
+                  <BsPatchCheckFill
+                    style={{
+                      marginTop: "0.5rem",
+                    }}
+                    size={100}
+                  />
+                </Zoom>
               </MessageSuccessfully>
               <FormToValidation
                 resultValidation={resultValidation}
@@ -72,18 +85,27 @@ const PopUpValidation = ({
                   ולא קיבלתם מסרון זה יש לוודא כי הוזן מספר פלאפון תקין, ולנסות
                   בשנית.
                 </ContainerTextMessage>
-
-                <MdPhonelinkLock size={30} color="brown" />
-
+                {!errorMessage && <MdPhonelinkLock size={30} color="brown" />}
+                {errorMessage && (
+                  <Fade>
+                    <div
+                      style={{
+                        textAlign: "center",
+                      }}
+                    >
+                      <ParaError>הוזן קוד שגוי</ParaError>
+                      <TiWarning size={30} color="#d62d49" />
+                    </div>
+                  </Fade>
+                )}
                 <InputValidation
                   onChange={(e) => setOptCode(e.target.value)}
                   dir="rtl"
-                  placeholder="הזינו את הקוד"
+                  placeholder="הזינו כאן את הקוד"
                 />
-
                 <ButtonValidation type="submit">אישור</ButtonValidation>
               </FormToValidation>
-            </div>
+            </ContainerContentPopUp>
           </Zoom>
         </ContainerPopUpValidation>
       </RemoveScroll>

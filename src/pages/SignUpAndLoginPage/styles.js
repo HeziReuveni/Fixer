@@ -167,7 +167,7 @@ export const FormToValidation = styled.form`
   align-items: center;
   justify-content: space-evenly;
   width: 80%;
-  min-height: 20rem;
+  min-height: 25rem;
   background-color: rgba(255, 255, 255, 0.7);
 `;
 
@@ -175,10 +175,16 @@ export const MessageSuccessfully = styled.div`
   display: ${(props) => (props.resultValidation ? "flex" : "none")};
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  width: 60vw;
-  min-height: 10rem;
-  background-color: rgba(25, 255, 255, 0.7);
+  justify-content: center;
+  min-width: 12rem;
+  min-height: 12rem;
+  /* background-color: rgba(255, 255, 255, 0.5); */
+  border-radius: 50%;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #14a34b;
+  font-size: 1rem;
 `;
 
 export const ContainerTextMessage = styled.div`
@@ -191,6 +197,7 @@ export const ContainerTextMessage = styled.div`
 `;
 
 export const InputValidation = styled.input`
+  text-align: center;
   background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid #393191;
   border-radius: 5px;
@@ -201,6 +208,7 @@ export const InputValidation = styled.input`
   outline: none;
   ::placeholder {
     color: #393191;
+    text-align: center;
   }
 `;
 
@@ -209,8 +217,8 @@ export const ButtonValidation = styled.button`
   align-items: center;
   justify-content: center;
   background: none;
-  border: 1px solid green;
-  color: green;
+  border: 1px solid #393191;
+  color: #393191;
   width: 40%;
   border-radius: 5px;
   display: flex;
@@ -220,4 +228,16 @@ export const ButtonValidation = styled.button`
   font-weight: bold;
   font-size: 1.2rem;
   letter-spacing: 1px;
+`;
+
+export const ContainerContentPopUp = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const ParaError = styled.p`
+  color: #e41c3d;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
 `;

@@ -10,6 +10,17 @@ import { Link } from "react-scroll";
 
 const WelcomeMessage = () => {
   const { setLoginPage, setSignupPage, setFirstView } = useContext(UserContext);
+  const registerOnClick = () => {
+    setSignupPage(true);
+    setLoginPage(false);
+    setFirstView(false);
+  }
+
+  const loginOnClick = () => {
+    setLoginPage(true);
+    setSignupPage(false);
+    setFirstView(false);
+  }
 
   return (
     <>
@@ -30,11 +41,7 @@ const WelcomeMessage = () => {
             to="SignUpAndLoginPage"
           >
             <ButtonHomePage
-              onClick={() => {
-                setLoginPage(true);
-                setSignupPage(false);
-                setFirstView(false);
-              }}
+              onClick={loginOnClick}
             >
               התחברות
             </ButtonHomePage>
@@ -48,11 +55,7 @@ const WelcomeMessage = () => {
             to="SignUpAndLoginPage"
           >
             <ButtonHomePage
-              onClick={() => {
-                setSignupPage(true);
-                setLoginPage(false);
-                setFirstView(false);
-              }}
+              onClick={registerOnClick}
             >
               הרשמה
             </ButtonHomePage>
