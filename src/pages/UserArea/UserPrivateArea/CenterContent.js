@@ -4,7 +4,15 @@ import { Zoom } from "react-reveal";
 
 const CenterContent = () => {
   return (
-    <div>
+    <div
+      style={{
+        width: "100%",
+        height: "51vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <Zoom>
         <img src={git} width="200px" />
       </Zoom>
