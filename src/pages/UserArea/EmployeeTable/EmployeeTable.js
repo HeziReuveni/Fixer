@@ -9,7 +9,7 @@ import {
   ContainerIconRow,
 } from "./styles";
 import WaveBorder from "../../SignUpAndLoginPage/WaveBorder";
-import { Fade } from "react-reveal";
+import { Fade, Zoom } from "react-reveal";
 import { TiInfoLarge } from "react-icons/ti";
 import img from "../../UserArea/UserPrivateArea/gifs/sefy.jpg";
 
@@ -35,28 +35,30 @@ const EmployeeTable = () => {
         </div>
       </Fade>
       <div>
-        <ContainerUl>
-          <ContainerLi>
-            <ContainerIconRow>
-              <TiInfoLarge size={25} />
-            </ContainerIconRow>
-            <ContainerTextRow>
-              <div
-                style={{
-                  fontSize: "1.3rem",
-                }}
-              >
-                יחזקאל ראובני
-              </div>
-              <div>מנהל אזור </div>
-            </ContainerTextRow>
-            <Image src={img} />
-          </ContainerLi>
-          <ContainerLi>sdasdasdasdas</ContainerLi>
-          <ContainerLi>sdasdasdasdas</ContainerLi>
-          <ContainerLi>sdasdasdasdas</ContainerLi>
-          <ContainerLi>sdasdasdasdas</ContainerLi>
-        </ContainerUl>
+        <Zoom>
+          <ContainerUl>
+            <ContainerLi>
+              <ContainerIconRow>
+                <TiInfoLarge size={25} />
+              </ContainerIconRow>
+              <ContainerTextRow>
+                <div
+                  style={{
+                    fontSize: "1.3rem",
+                  }}
+                >
+                  יחזקאל ראובני
+                </div>
+                <div>מנהל אזור </div>
+              </ContainerTextRow>
+              <Image src={img} />
+            </ContainerLi>
+            <ContainerLi>sdasdasdasdas</ContainerLi>
+            <ContainerLi>sdasdasdasdas</ContainerLi>
+            <ContainerLi>sdasdasdasdas</ContainerLi>
+            <ContainerLi>sdasdasdasdas</ContainerLi>
+          </ContainerUl>
+        </Zoom>
       </div>
     </ContainerTablePage>
   );
