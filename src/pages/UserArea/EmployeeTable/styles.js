@@ -36,10 +36,10 @@ export const ContainerLi = styled.li`
   justify-content: space-evenly;
   background-color: #3225bf;
   color: whitesmoke;
-  border: 1px solid #3225bf;
   margin-top: 1rem;
   height: 15vh;
   border-radius: 5px;
+  box-shadow: 0px 0px 10px gray;
 `;
 
 export const Image = styled.img`
