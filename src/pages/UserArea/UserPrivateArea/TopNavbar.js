@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { ContainerTopNavbar, UserImage, LogOutIcon } from "./styles";
 import WaveBorder from "../../SignUpAndLoginPage/WaveBorder";
 import img from "./gifs/unuser.png";
