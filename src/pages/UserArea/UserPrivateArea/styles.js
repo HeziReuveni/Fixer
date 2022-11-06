@@ -13,7 +13,7 @@ export const ContainerUserHomePage = styled.div`
 export const ContainerBottomNavbar = styled.div`
   height: 15vh;
   width: 100%;
-  background-color: #1b108d;
+  background-color: #3225bf;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -23,7 +23,7 @@ export const ContainerBottomNavbar = styled.div`
 export const ContainerTopNavbar = styled.div`
   height: 25vh;
   width: 100%;
-  background-color: #1b108d;
+  background-color: #3225bf;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,14 +48,15 @@ export const ContainerIconBottomNavbar = styled.div`
   background-color: rgba(255, 255, 255, 0.2);
   padding: 0.4rem;
   border-radius: 5px;
-  color: #fbc628;
+  color: whitesmoke;
 `;
 
 export const UserImage = styled.img`
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  border: 5px solid white;
+  border: thick double aliceblue;
+  padding: 0.3rem;
 `;
 
 export const LogOutIcon = styled.div`

@@ -30,12 +30,12 @@ export const ButtonHomePage = styled.button`
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: bold;
   letter-spacing: 2px;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(49, 88, 171, 0.175);
   padding: 1rem;
   width: 40vw;
-  color: aliceblue;
+  color: whitesmoke;
   font-size: 1.1rem;
-  border: 1px solid aliceblue;
+  border: 1px solid #87bcde;
   margin-top: 1rem;
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
