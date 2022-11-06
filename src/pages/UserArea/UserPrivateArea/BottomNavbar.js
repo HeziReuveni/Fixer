@@ -6,6 +6,7 @@ import { GiPapers } from "react-icons/gi";
 import { HiOutlinePaperClip } from "react-icons/hi";
 import { TfiHelp } from "react-icons/tfi";
 import { Fade } from "react-reveal";
+import { Link } from "react-router-dom";
 
 const BottomNavbar = () => {
   const url = (wrap = false) =>
@@ -27,21 +28,31 @@ const BottomNavbar = () => {
             backgroundImage: url(true),
           }}
         >
-          <ContainerIconBottomNavbar>
-            <TfiHelp size={25} />
-          </ContainerIconBottomNavbar>
-          <ContainerIconBottomNavbar>
-            <HiOutlinePaperClip size={25} />
-          </ContainerIconBottomNavbar>
-          <ContainerIconBottomNavbar>
-            <GiPapers size={25} />
-          </ContainerIconBottomNavbar>
-          <ContainerIconBottomNavbar>
-            <BsTable size={25} />
-          </ContainerIconBottomNavbar>
-          <ContainerIconBottomNavbar>
-            <CiCalculator2 size={25} />
-          </ContainerIconBottomNavbar>
+          <Link to="/help">
+            <ContainerIconBottomNavbar>
+              <TfiHelp size={25} />
+            </ContainerIconBottomNavbar>
+          </Link>
+          <Link to="/papers">
+            <ContainerIconBottomNavbar>
+              <HiOutlinePaperClip size={25} />
+            </ContainerIconBottomNavbar>
+          </Link>
+          <Link to="/papers">
+            <ContainerIconBottomNavbar>
+              <GiPapers size={25} />
+            </ContainerIconBottomNavbar>
+          </Link>
+          <Link to="/employee-table">
+            <ContainerIconBottomNavbar>
+              <BsTable size={25} />
+            </ContainerIconBottomNavbar>
+          </Link>
+          <Link to="/calculator">
+            <ContainerIconBottomNavbar>
+              <CiCalculator2 size={25} />
+            </ContainerIconBottomNavbar>
+          </Link>
         </ContainerBottomNavbar>
       </Fade>
     </div>
