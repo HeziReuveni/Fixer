@@ -22,6 +22,7 @@ export const ContainerTitle = styled.div`
 export const ContainerUl = styled.div`
   list-style: none;
   padding: 0;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +47,7 @@ export const Image = styled.img`
   height: 80px;
   width: 80px;
   border-radius: 50px;
-  border: thick double whitesmoke;
+  border: thick double rgba(255, 255, 255, 0.3);
   padding: 0.1rem;
 `;
 
@@ -63,4 +64,26 @@ export const ContainerIconRow = styled.div`
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 50px;
   padding: 1rem;
+`;
+
+export const ButtonAddUser = styled.button`
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+`;
+
+export const ContainerAddForm = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(15px);
 `;
