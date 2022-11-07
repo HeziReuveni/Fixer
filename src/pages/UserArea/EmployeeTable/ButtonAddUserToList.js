@@ -16,7 +16,7 @@ const ButtonAddUserToList = () => {
             <div
               style={{
                 display: "flex",
-                alignItems: "center",
+                alignItems: "start",
                 justifyContent: "center",
                 position: "fixed",
                 top: "0",

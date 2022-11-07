@@ -12,11 +12,12 @@ const AddForm = () => {
     <>
       <form
         style={{
+          marginTop: "1rem",
           backgroundColor: "red",
           height: "22rem",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          alignItems: "start",
           justifyContent: "space-evenly",
           width: "90%",
         }}
