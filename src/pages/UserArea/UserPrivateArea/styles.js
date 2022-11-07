@@ -55,8 +55,8 @@ export const UserImage = styled.img`
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: thick double aliceblue;
-  padding: 0.3rem;
+  border: thick double rgba(255, 255, 255, 0.3);
+  padding: 0.1rem;
 `;
 
 export const LogOutIcon = styled.div`
