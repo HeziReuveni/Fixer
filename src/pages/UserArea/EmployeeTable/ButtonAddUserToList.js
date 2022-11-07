@@ -12,11 +12,26 @@ const ButtonAddUserToList = () => {
     <>
       {!displayIcon ? (
         <RemoveScroll>
+          {!displayIcon ? (
+            <Fade>
+              <div
+                onClick={() => setDisplayIcon(true)}
+                style={{
+                  position: "absolute",
+                  top: "10px",
+                  right: "10px",
+                  zIndex: "1",
+                }}
+              >
+                <FiX size={20} color="#3225bf" />
+              </div>
+            </Fade>
+          ) : null}
           <Fade>
             <div
               style={{
                 display: "flex",
-                alignItems: "start",
+                alignItems: "center",
                 justifyContent: "center",
                 position: "fixed",
                 top: "0",
@@ -32,19 +47,13 @@ const ButtonAddUserToList = () => {
           </Fade>
         </RemoveScroll>
       ) : null}
-      <ButtonAddUser onClick={() => setDisplayIcon(!displayIcon)}>
-        {displayIcon ? (
-          <div>
-            <RiUserAddFill size={25} color="#3225bf" />
-          </div>
-        ) : (
+      {displayIcon ? (
+        <ButtonAddUser onClick={() => setDisplayIcon(false)}>
           <Fade>
-            <div>
-              <FiX size={25} color="#3225bf" />
-            </div>
+            <RiUserAddFill size={25} color="#3225bf" />
           </Fade>
-        )}
-      </ButtonAddUser>
+        </ButtonAddUser>
+      ) : null}
     </>
   );
 };

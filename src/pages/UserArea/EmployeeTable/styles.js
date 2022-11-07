@@ -87,3 +87,62 @@ export const ContainerAddForm = styled.div`
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(15px);
 `;
+
+export const ContainerInputAddForm = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  width: 100%;
+  height: 5vh;
+  min-height: 3rem;
+  border: 2px solid #3225bf;
+  border-radius: 10px;
+  padding: 0.3rem;
+  transition: 0.5s;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+`;
+
+export const InputAddForm = styled.input`
+  text-align: right;
+  color: white;
+  width: 90%;
+  height: 80%;
+  outline: none;
+  border: none;
+  background: none;
+  ::placeholder {
+    color: #3225bf;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+`;
+
+export const InputAddImageFile = styled.input`
+  color: #3225bf;
+  ::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  ::before {
+    content: "בחר תמונה (לא חובה)";
+    display: inline-block;
+    color: #3225bf;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 10pt;
+  }
+`;
+
+export const ContainerInputAddImageFile = styled(ContainerInputAddForm)`
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  &:hover {
+    background: none;
+  }
+`;

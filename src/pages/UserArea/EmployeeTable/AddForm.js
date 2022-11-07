@@ -1,11 +1,22 @@
 import React from "react";
 import {
-  ContainerInput,
-  InputForm,
   ContainerIconAndLind,
   SideLine,
+  ButtonValidation,
 } from "../../SignUpAndLoginPage/styles";
 import { FaPhone } from "react-icons/fa";
+import { RiUserAddFill } from "react-icons/ri";
+import { BsImageFill } from "react-icons/bs";
+import { FaUserTie } from "react-icons/fa";
+import { HiAcademicCap } from "react-icons/hi";
+import { TfiMoney } from "react-icons/tfi";
+import { MdEmail } from "react-icons/md";
+import {
+  ContainerInputAddForm,
+  InputAddForm,
+  InputAddImageFile,
+  ContainerInputAddImageFile,
+} from "./styles";
 
 const AddForm = () => {
   return (
@@ -13,50 +24,85 @@ const AddForm = () => {
       <form
         style={{
           marginTop: "1rem",
-          backgroundColor: "red",
-          height: "22rem",
+          height: "28rem",
           display: "flex",
           flexDirection: "column",
-          alignItems: "start",
+          alignItems: "center",
           justifyContent: "space-evenly",
-          width: "90%",
+          width: "80%",
         }}
       >
-        <ContainerInput>
-          <InputForm />
+        <div>
+          <RiUserAddFill size={40} color="#3225bf" />
+        </div>
+        <ContainerInputAddForm>
+          <InputAddForm placeholder="שם מלא" />
           <ContainerIconAndLind>
-            <SideLine />
-            <FaPhone size={20} color="aliceblue" />
+            <SideLine
+              style={{
+                borderLeft: "2px solid #3225bf",
+              }}
+            />
+            <FaUserTie size={25} color="#3225bf" />
           </ContainerIconAndLind>
-        </ContainerInput>
-        <ContainerInput>
-          <InputForm />
+        </ContainerInputAddForm>
+        <ContainerInputAddForm>
+          <InputAddForm placeholder="תפקיד" />
           <ContainerIconAndLind>
-            <SideLine />
-            <FaPhone size={20} color="aliceblue" />
+            <SideLine
+              style={{
+                borderLeft: "2px solid #3225bf",
+              }}
+            />
+            <HiAcademicCap size={25} color="#3225bf" />
           </ContainerIconAndLind>
-        </ContainerInput>
-        <ContainerInput>
-          <InputForm />
+        </ContainerInputAddForm>
+        <ContainerInputAddForm>
+          <InputAddForm placeholder="שכר" />
           <ContainerIconAndLind>
-            <SideLine />
-            <FaPhone size={20} color="aliceblue" />
+            <SideLine
+              style={{
+                borderLeft: "2px solid #3225bf",
+              }}
+            />
+            <TfiMoney size={25} color="#3225bf" />
           </ContainerIconAndLind>
-        </ContainerInput>
-        <ContainerInput>
-          <InputForm />
+        </ContainerInputAddForm>
+        <ContainerInputAddForm>
+          <InputAddForm placeholder="אימייל" />
           <ContainerIconAndLind>
-            <SideLine />
-            <FaPhone size={20} color="aliceblue" />
+            <SideLine
+              style={{
+                borderLeft: "2px solid #3225bf",
+              }}
+            />
+            <MdEmail size={25} color="#3225bf" />
           </ContainerIconAndLind>
-        </ContainerInput>
-        <ContainerInput>
-          <InputForm />
+        </ContainerInputAddForm>
+        <ContainerInputAddImageFile>
+          <InputAddImageFile
+            style={{
+              width: "7.6rem",
+            }}
+            type="file"
+          />
           <ContainerIconAndLind>
-            <SideLine />
-            <FaPhone size={20} color="aliceblue" />
+            <SideLine
+              style={{
+                borderLeft: "2px solid #3225bf",
+              }}
+            />
+            <BsImageFill size={25} color="#3225bf" />
           </ContainerIconAndLind>
-        </ContainerInput>
+        </ContainerInputAddImageFile>
+        <ButtonValidation
+          style={{
+            border: "2px solid #3225bf",
+            color: "#3225bf",
+          }}
+        >
+          הוסף
+        </ButtonValidation>
       </form>
     </>
   );
