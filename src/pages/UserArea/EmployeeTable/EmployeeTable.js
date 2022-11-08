@@ -3,6 +3,7 @@ import { ContainerTablePage } from "./styles";
 import EmployeeListToMobile from "./EmployeeListToMobile";
 import AddUserToList from "./AddUserToList";
 
+
 const EmployeeTable = () => {
   return (
     <ContainerTablePage>

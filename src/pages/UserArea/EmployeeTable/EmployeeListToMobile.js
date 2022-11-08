@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Axios from "axios";
 import {
   ContainerTitle,
   ContainerUl,
@@ -14,16 +15,27 @@ import { TiInfoLarge } from "react-icons/ti";
 import { ImHome } from "react-icons/im";
 import img from "../../UserArea/UserPrivateArea/gifs/sefy.jpg";
 import { useHistory } from "react-router-dom";
+import { getEmployees } from "../../apis/auth";
 
 const EmployeeListToMobile = () => {
+  const [employees, setEmployees] = useState([]);
   const url = (wrap = false) =>
     `${
       wrap ? "url(" : ""
     }https://awv3node-homepage.surge.sh/build/assets/stars.svg${
       wrap ? ")" : ""
     }`;
-
   let history = useHistory();
+
+  useEffect(() => {
+    const fetchEmployees = async () => {
+      const response = await getEmployees();
+      setEmployees(response);
+    };
+    fetchEmployees();
+  }, []);
+
+  console.log(employees);
 
   return (
     <div>
@@ -45,30 +57,25 @@ const EmployeeListToMobile = () => {
       <div>
         <Zoom>
           <ContainerUl>
-            <ContainerLi>
-              <ContainerIconRow>
-                <TiInfoLarge size={25} />
-              </ContainerIconRow>
-              <ContainerTextRow>
-                <div
-                  style={{
-                    fontSize: "1.3rem",
-                  }}
-                >
-                  יחזקאל ראובני
-                </div>
-                <div>מנהל אזור </div>
-              </ContainerTextRow>
-              <Image src={img} />
-            </ContainerLi>
-            <ContainerLi>sdasdasdasdas</ContainerLi>
-            <ContainerLi>sdasdasdasdas</ContainerLi>
-            <ContainerLi>sdasdasdasdas</ContainerLi>
-            <ContainerLi>sdasdasdasdas</ContainerLi>
-            <ContainerLi>sdasdasdasdas</ContainerLi>
-            <ContainerLi>sdasdasdasdas</ContainerLi>
-            <ContainerLi>sdasdasdasdas</ContainerLi>
-            <ContainerLi>sdasdasdasdas</ContainerLi>
+            {employees &&
+              employees.map((item) => (
+                <ContainerLi>
+                  <ContainerIconRow>
+                    <TiInfoLarge size={25} />
+                  </ContainerIconRow>
+                  <ContainerTextRow>
+                    <div
+                      style={{
+                        fontSize: "1.3rem",
+                      }}
+                    >
+                      {item.fullName}
+                    </div>
+                    <div>{item.role}</div>
+                  </ContainerTextRow>
+                  <Image src={item.imageUrl && item.imageUrl} />
+                </ContainerLi>
+              ))}
           </ContainerUl>
         </Zoom>
       </div>

@@ -44,15 +44,30 @@ export const checkOptCode = async (userCode) => {
 
 export const addEmployee = async (fullName, role, salary, email, imageUrl) => {
   try {
-    const response = await Axios.post("/create-user-details", {
-      fullName,
-      role,
-      salary,
-      email,
-      imageUrl,
-    });
+    const response = await Axios.post(
+      `${process.env.REACT_APP_BASE_URL}/create-user-details`,
+      {
+        fullName,
+        role,
+        salary,
+        email,
+        imageUrl,
+      }
+    );
     return response.data;
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const getEmployees = async () => {
+  try {
+    const response = await Axios.get(
+      `${process.env.REACT_APP_BASE_URL}/get-employees`
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    return [];
   }
 };

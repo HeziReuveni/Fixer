@@ -44,8 +44,8 @@ export const ContainerLi = styled.li`
 `;
 
 export const Image = styled.img`
-  height: 80px;
-  width: 80px;
+  height: 70px;
+  width: 70px;
   border-radius: 50px;
   border: thick double rgba(255, 255, 255, 0.3);
   padding: 0.1rem;
@@ -107,7 +107,7 @@ export const ContainerInputAddForm = styled.div`
 
 export const InputAddForm = styled.input`
   text-align: right;
-  color: white;
+  color: #3225bf;
   width: 90%;
   height: 80%;
   outline: none;
@@ -152,4 +152,21 @@ export const ButtonReturnHomePage = styled(ContainerIconRow)`
   right: 1rem;
   top: 1rem;
   z-index: 1;
+`;
+
+export const ContainerMessageSuccess = styled.div`
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 5rem;
+  font-size: 25px;
+  padding: 2rem;
+`;
+
+export const TextNameMessageSuccess = styled.div`
+  color: #14a34b;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
 `;
