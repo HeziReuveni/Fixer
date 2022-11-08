@@ -105,6 +105,7 @@ const AddForm = () => {
             style={{
               border: "2px solid #3225bf",
               color: "#3225bf",
+              borderRadius: "10px",
             }}
           >
             הוסף
