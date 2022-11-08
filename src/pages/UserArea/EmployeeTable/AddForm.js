@@ -86,7 +86,7 @@ const AddForm = () => {
         <ContainerInputAddImageFile>
           <InputAddImageFile
             style={{
-              width: "7.65rem",
+              width: "7.7rem",
             }}
             type="file"
           />
