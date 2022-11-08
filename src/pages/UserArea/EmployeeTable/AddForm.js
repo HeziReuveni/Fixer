@@ -86,7 +86,7 @@ const AddForm = () => {
         <ContainerInputAddImageFile>
           <InputAddImageFile
             style={{
-              width: "7.7rem",
+              width: "7.8rem",
             }}
             type="file"
           />
@@ -101,7 +101,7 @@ const AddForm = () => {
         </ContainerInputAddImageFile>
         <ButtonValidation
           style={{
-            border: "2px solid #3225bf",
+            border: "2px solid red",
             color: "#3225bf",
           }}
         >
