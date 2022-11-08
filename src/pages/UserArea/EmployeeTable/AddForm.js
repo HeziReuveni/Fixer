@@ -4,7 +4,6 @@ import {
   SideLine,
   ButtonValidation,
 } from "../../SignUpAndLoginPage/styles";
-import { FaPhone } from "react-icons/fa";
 import { RiUserAddFill } from "react-icons/ri";
 import { BsImageFill } from "react-icons/bs";
 import { FaUserTie } from "react-icons/fa";
@@ -23,7 +22,6 @@ const AddForm = () => {
     <>
       <form
         style={{
-          marginTop: "1rem",
           height: "28rem",
           display: "flex",
           flexDirection: "column",
@@ -32,7 +30,13 @@ const AddForm = () => {
           width: "80%",
         }}
       >
-        <div>
+        <div
+          style={{
+            backgroundColor: "rgb(0, 76, 175, 0.2)",
+            padding: "1rem",
+            borderRadius: "10px",
+          }}
+        >
           <RiUserAddFill size={40} color="#3225bf" />
         </div>
         <ContainerInputAddForm>

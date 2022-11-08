@@ -94,8 +94,8 @@ export const ContainerInputAddForm = styled.div`
   justify-content: center;
   background: none;
   width: 100%;
-  height: 5vh;
-  min-height: 3rem;
+  height: 4vh;
+  min-height: 2.5rem;
   border: 2px solid #3225bf;
   border-radius: 10px;
   padding: 0.3rem;
@@ -145,4 +145,11 @@ export const ContainerInputAddImageFile = styled(ContainerInputAddForm)`
   &:hover {
     background: none;
   }
+`;
+
+export const ButtonReturnHomePage = styled(ContainerIconRow)`
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 1;
 `;

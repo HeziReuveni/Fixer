@@ -6,11 +6,14 @@ import {
   Image,
   ContainerTextRow,
   ContainerIconRow,
+  ButtonReturnHomePage,
 } from "./styles";
 import WaveBorder from "../../SignUpAndLoginPage/WaveBorder";
 import { Fade, Zoom } from "react-reveal";
 import { TiInfoLarge } from "react-icons/ti";
+import { ImHome } from "react-icons/im";
 import img from "../../UserArea/UserPrivateArea/gifs/sefy.jpg";
+import { useHistory } from "react-router-dom";
 
 const EmployeeListToMobile = () => {
   const url = (wrap = false) =>
@@ -20,8 +23,13 @@ const EmployeeListToMobile = () => {
       wrap ? ")" : ""
     }`;
 
+  let history = useHistory();
+
   return (
     <div>
+      <ButtonReturnHomePage>
+        <ImHome onClick={() => history.push("/user-area")} />
+      </ButtonReturnHomePage>
       <Fade top>
         <div>
           <ContainerTitle

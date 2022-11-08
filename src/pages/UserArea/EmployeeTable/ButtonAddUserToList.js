@@ -17,10 +17,10 @@ const ButtonAddUserToList = () => {
               <div
                 onClick={() => setDisplayIcon(true)}
                 style={{
-                  position: "absolute",
+                  position: "fixed",
                   top: "10px",
                   right: "10px",
-                  zIndex: "1",
+                  zIndex: "3",
                 }}
               >
                 <FiX size={20} color="#3225bf" />
@@ -34,6 +34,7 @@ const ButtonAddUserToList = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 position: "fixed",
+                zIndex: "2",
                 top: "0",
                 left: "0",
                 height: "100%",
