@@ -16,98 +16,101 @@ import {
   InputAddImageFile,
   ContainerInputAddImageFile,
 } from "./styles";
+import { Fade } from "react-reveal";
 
 const AddForm = () => {
   return (
     <>
-      <form
-        style={{
-          height: "28rem",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "space-evenly",
-          width: "80%",
-        }}
-      >
-        <div
+      <Fade top>
+        <form
           style={{
-            backgroundColor: "rgb(0, 76, 175, 0.2)",
-            padding: "1rem",
-            borderRadius: "10px",
+            height: "26rem",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+            width: "80%",
           }}
         >
-          <RiUserAddFill size={40} color="#3225bf" />
-        </div>
-        <ContainerInputAddForm>
-          <InputAddForm placeholder="שם מלא" />
-          <ContainerIconAndLind>
-            <SideLine
-              style={{
-                borderLeft: "2px solid #3225bf",
-              }}
-            />
-            <FaUserTie size={25} color="#3225bf" />
-          </ContainerIconAndLind>
-        </ContainerInputAddForm>
-        <ContainerInputAddForm>
-          <InputAddForm placeholder="תפקיד" />
-          <ContainerIconAndLind>
-            <SideLine
-              style={{
-                borderLeft: "2px solid #3225bf",
-              }}
-            />
-            <HiAcademicCap size={25} color="#3225bf" />
-          </ContainerIconAndLind>
-        </ContainerInputAddForm>
-        <ContainerInputAddForm>
-          <InputAddForm placeholder="שכר" />
-          <ContainerIconAndLind>
-            <SideLine
-              style={{
-                borderLeft: "2px solid #3225bf",
-              }}
-            />
-            <TfiMoney size={25} color="#3225bf" />
-          </ContainerIconAndLind>
-        </ContainerInputAddForm>
-        <ContainerInputAddForm>
-          <InputAddForm placeholder="אימייל" />
-          <ContainerIconAndLind>
-            <SideLine
-              style={{
-                borderLeft: "2px solid #3225bf",
-              }}
-            />
-            <MdEmail size={25} color="#3225bf" />
-          </ContainerIconAndLind>
-        </ContainerInputAddForm>
-        <ContainerInputAddImageFile>
-          <InputAddImageFile
+          <div
             style={{
-              width: "8.3rem",
+              backgroundColor: "rgb(0, 76, 175, 0.2)",
+              padding: "1rem",
+              borderRadius: "10px",
             }}
-            type="file"
-          />
-          <ContainerIconAndLind>
-            <SideLine
+          >
+            <RiUserAddFill size={25} color="#3225bf" />
+          </div>
+          <ContainerInputAddForm>
+            <InputAddForm placeholder="שם מלא" />
+            <ContainerIconAndLind>
+              <SideLine
+                style={{
+                  borderLeft: "2px solid #3225bf",
+                }}
+              />
+              <FaUserTie size={25} color="#3225bf" />
+            </ContainerIconAndLind>
+          </ContainerInputAddForm>
+          <ContainerInputAddForm>
+            <InputAddForm placeholder="תפקיד" />
+            <ContainerIconAndLind>
+              <SideLine
+                style={{
+                  borderLeft: "2px solid #3225bf",
+                }}
+              />
+              <HiAcademicCap size={25} color="#3225bf" />
+            </ContainerIconAndLind>
+          </ContainerInputAddForm>
+          <ContainerInputAddForm>
+            <InputAddForm placeholder="שכר" />
+            <ContainerIconAndLind>
+              <SideLine
+                style={{
+                  borderLeft: "2px solid #3225bf",
+                }}
+              />
+              <TfiMoney size={25} color="#3225bf" />
+            </ContainerIconAndLind>
+          </ContainerInputAddForm>
+          <ContainerInputAddForm>
+            <InputAddForm placeholder="אימייל" />
+            <ContainerIconAndLind>
+              <SideLine
+                style={{
+                  borderLeft: "2px solid #3225bf",
+                }}
+              />
+              <MdEmail size={25} color="#3225bf" />
+            </ContainerIconAndLind>
+          </ContainerInputAddForm>
+          <ContainerInputAddImageFile>
+            <InputAddImageFile
               style={{
-                borderLeft: "2px solid #3225bf",
+                width: "8.3rem",
               }}
+              type="file"
             />
-            <BsImageFill size={22} color="#3225bf" />
-          </ContainerIconAndLind>
-        </ContainerInputAddImageFile>
-        <ButtonValidation
-          style={{
-            border: "2px solid #3225bf",
-            color: "#3225bf",
-          }}
-        >
-          הוסף
-        </ButtonValidation>
-      </form>
+            <ContainerIconAndLind>
+              <SideLine
+                style={{
+                  borderLeft: "2px solid #3225bf",
+                }}
+              />
+              <BsImageFill size={22} color="#3225bf" />
+            </ContainerIconAndLind>
+          </ContainerInputAddImageFile>
+          <ButtonValidation
+            style={{
+              border: "2px solid #3225bf",
+              color: "#3225bf",
+            }}
+          >
+            הוסף
+          </ButtonValidation>
+        </form>
+      </Fade>
     </>
   );
 };

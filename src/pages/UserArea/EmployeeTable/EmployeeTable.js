@@ -1,13 +1,13 @@
 import React from "react";
 import { ContainerTablePage } from "./styles";
 import EmployeeListToMobile from "./EmployeeListToMobile";
-import ButtonAddUserToList from "./ButtonAddUserToList";
+import AddUserToList from "./AddUserToList";
 
 const EmployeeTable = () => {
   return (
     <ContainerTablePage>
       <EmployeeListToMobile />
-      <ButtonAddUserToList />
+      <AddUserToList />
     </ContainerTablePage>
   );
 };

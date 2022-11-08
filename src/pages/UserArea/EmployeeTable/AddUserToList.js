@@ -6,7 +6,7 @@ import { Fade } from "react-reveal";
 import { RemoveScroll } from "react-remove-scroll";
 import AddForm from "./AddForm";
 
-const ButtonAddUserToList = () => {
+const AddUserToList = () => {
   const [displayIcon, setDisplayIcon] = useState(true);
   return (
     <>
@@ -59,4 +59,4 @@ const ButtonAddUserToList = () => {
   );
 };
 
-export default ButtonAddUserToList;
+export default AddUserToList;

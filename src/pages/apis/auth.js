@@ -41,3 +41,18 @@ export const checkOptCode = async (userCode) => {
     return false;
   }
 };
+
+export const addEmployee = async (fullName, role, salary, email, imageUrl) => {
+  try {
+    const response = await Axios.post("/create-user-details", {
+      fullName,
+      role,
+      salary,
+      email,
+      imageUrl,
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

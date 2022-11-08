@@ -95,7 +95,7 @@ export const ContainerInputAddForm = styled.div`
   background: none;
   width: 100%;
   height: 4vh;
-  min-height: 2.5rem;
+  min-height: 2.3rem;
   border: 2px solid #3225bf;
   border-radius: 10px;
   padding: 0.3rem;
