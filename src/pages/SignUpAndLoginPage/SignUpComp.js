@@ -21,10 +21,18 @@ import { sendSms } from "../apis/auth";
 import { UserContext } from "../context/context";
 import ImagesUploading from "../multipurpose/ImagesUploading";
 import { FiX } from "react-icons/fi";
+import { RemoveScroll } from "react-remove-scroll";
 
 import PopUpValidation from "./PopUpValidation";
 
 const SignUpComp = ({ setSignupPage, setFirstView }) => {
+  const url = (wrap = false) =>
+    `${
+      wrap ? "url(" : ""
+    }https://awv3node-homepage.surge.sh/build/assets/stars.svg${
+      wrap ? ")" : ""
+    }`;
+
   const [popUp, setPopUp] = useState(false);
   const [popUpImagesUploading, setPopUpImagesUploading] = useState(false);
   const [imageUrl, setImageUrl] = useState();
@@ -57,13 +65,33 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
 
   return (
     <div>
+      {popUpImagesUploading && (
+        <Fade>
+          <div
+            style={{
+              position: "absolute",
+              right: "0%",
+              top: "0%",
+              zIndex: "2",
+              height: "100%",
+              width: "100%",
+              background: "#253237",
+              backgroundImage: url(true),
+            }}
+          >
+            <ImagesUploading
+              setPopUpImagesUploading={setPopUpImagesUploading}
+            />
+          </div>
+        </Fade>
+      )}
       <Fade>
         <div
           style={{
             position: "absolute",
             right: "10px",
             top: "10px",
-            zIndex: "3",
+            zIndex: "1",
             color: "#87bcde",
           }}
         >
@@ -87,9 +115,7 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
           setPopUp={setPopUp}
         />
       )}
-      {popUpImagesUploading && (
-        <ImagesUploading setPopUpImagesUploading={setPopUpImagesUploading} />
-      )}
+
       <Fade top>
         <div
           style={{
@@ -192,7 +218,10 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
             </ContainerInput>
             <ContainerInputImageFile>
               <InputImageFile
-                onClick={() => setPopUpImagesUploading(!popUpImagesUploading)}
+                onClick={() => {
+                  setPopUpImagesUploading(!popUpImagesUploading);
+                  // setSignupPage(false);
+                }}
               >
                 הוסף תמונה (לא חובה)
               </InputImageFile>
