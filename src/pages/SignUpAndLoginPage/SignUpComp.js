@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import {
   Form,
   TitleForm,
-  ContainerTitleForm,
   ContainerInput,
   InputForm,
   ButtonLoginAndSignUpPage,
@@ -11,7 +10,8 @@ import {
   InputImageFile,
   ContainerInputImageFile,
 } from "./styles";
-import { FaUserPlus, FaPhone } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa";
+import { RiUserAddFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
 import { BsImageFill } from "react-icons/bs";
 import { FaRegIdCard, FaUserTie } from "react-icons/fa";
@@ -82,12 +82,10 @@ const SignUpComp = () => {
           <Form
             onSubmit={handleDetailsToSignUp}
             style={{
-              height: "40rem",
+              height: "42rem",
             }}
           >
-            <ContainerTitleForm>
-              <FaUserPlus color="aliceblue" size={30} />
-            </ContainerTitleForm>
+            <RiUserAddFill color="#87bcde" size={40} />
             <TitleForm>הרשמה</TitleForm>
             <ContainerInput>
               <InputForm
@@ -102,7 +100,7 @@ const SignUpComp = () => {
               />
               <ContainerIconAndLind>
                 <SideLine />
-                <FaUserTie size={20} color="aliceblue" />
+                <FaUserTie size={20} color="#87bcde" />
               </ContainerIconAndLind>
             </ContainerInput>
             <ContainerInput>
@@ -119,7 +117,7 @@ const SignUpComp = () => {
               />
               <ContainerIconAndLind>
                 <SideLine />
-                <FaPhone size={20} color="aliceblue" />
+                <FaPhone size={20} color="#87bcde" />
               </ContainerIconAndLind>
             </ContainerInput>
             <ContainerInput>
@@ -136,7 +134,7 @@ const SignUpComp = () => {
               />
               <ContainerIconAndLind>
                 <SideLine />
-                <MdOutlinePassword size={25} color="aliceblue" />
+                <MdOutlinePassword size={25} color="#87bcde" />
               </ContainerIconAndLind>
             </ContainerInput>
             <ContainerInput>
@@ -152,7 +150,7 @@ const SignUpComp = () => {
               />
               <ContainerIconAndLind>
                 <SideLine />
-                <MdEmail size={25} color="aliceblue" />
+                <MdEmail size={25} color="#87bcde" />
               </ContainerIconAndLind>
             </ContainerInput>
             <ContainerInput>
@@ -169,7 +167,7 @@ const SignUpComp = () => {
               />
               <ContainerIconAndLind>
                 <SideLine />
-                <FaRegIdCard size={25} color="aliceblue" />
+                <FaRegIdCard size={25} color="#87bcde" />
               </ContainerIconAndLind>
             </ContainerInput>
             <ContainerInputImageFile>
@@ -189,7 +187,7 @@ const SignUpComp = () => {
                     marginRight: "0.1rem",
                   }}
                   size={25}
-                  color="aliceblue"
+                  color="#87bcde"
                 />
               </ContainerIconAndLind>
             </ContainerInputImageFile>

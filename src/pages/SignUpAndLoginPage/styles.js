@@ -20,15 +20,15 @@ export const Form = styled.form`
 `;
 
 export const ContainerTitleForm = styled.div`
-  border: 2px solid aliceblue;
+  /* border: 2px solid aliceblue;
   border-radius: 30%;
-  padding: 20px;
+  padding: 20px; */
 `;
 
 export const TitleForm = styled.label`
   font-size: 2rem;
   letter-spacing: 1.5px;
-  color: aliceblue;
+  color: #87bcde;
 `;
 
 export const ContainerInput = styled.div`
@@ -39,7 +39,7 @@ export const ContainerInput = styled.div`
   width: 100%;
   height: 5vh;
   min-height: 3rem;
-  border: 2px solid aliceblue;
+  border-bottom: 2px solid #87bcde;
   border-radius: 10px;
   padding: 0.3rem;
   transition: 0.5s;
@@ -111,19 +111,20 @@ export const ButtonLoginAndSignUpPage = styled.button`
   font-weight: bold;
   letter-spacing: 2px;
   background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0x 0x 10px white;
   padding: 0.7rem;
   width: 40vw;
-  color: aliceblue;
+  color: #87bcde;
   font-size: 1.1rem;
-  border: 2px solid aliceblue;
-  border-radius: 10px;
+  border: none;
+  border-radius: 5px;
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
 `;
 
 export const SideLine = styled.span`
-  border-left: 2px solid aliceblue;
+  border-left: 2px solid #87bcde;
   height: 2rem;
   border-radius: 20px;
 `;
