@@ -66,24 +66,27 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
   return (
     <div>
       {popUpImagesUploading && (
-        <Fade>
-          <div
-            style={{
-              position: "absolute",
-              right: "0%",
-              top: "0%",
-              zIndex: "2",
-              height: "100%",
-              width: "100%",
-              background: "#253237",
-              backgroundImage: url(true),
-            }}
-          >
-            <ImagesUploading
-              setPopUpImagesUploading={setPopUpImagesUploading}
-            />
+        <RemoveScroll>
+          <div>
+            <Fade>
+              <div
+                style={{
+                  position: "fixed",
+                  right: "0%",
+                  top: "0%",
+                  zIndex: "2",
+                  height: "100%",
+                  width: "100%",
+                  backgroundColor: "rgba(30,30,30,0.5)",
+                }}
+              >
+                <ImagesUploading
+                  setPopUpImagesUploading={setPopUpImagesUploading}
+                />
+              </div>
+            </Fade>
           </div>
-        </Fade>
+        </RemoveScroll>
       )}
       <Fade>
         <div
