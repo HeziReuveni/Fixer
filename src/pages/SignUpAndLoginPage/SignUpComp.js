@@ -24,7 +24,7 @@ import { FiX } from "react-icons/fi";
 
 import PopUpValidation from "./PopUpValidation";
 
-const SignUpComp = ({ setSignupPage }) => {
+const SignUpComp = ({ setSignupPage, setFirstView }) => {
   const [popUp, setPopUp] = useState(false);
   const [popUpImagesUploading, setPopUpImagesUploading] = useState(false);
   const [imageUrl, setImageUrl] = useState();
@@ -67,7 +67,13 @@ const SignUpComp = ({ setSignupPage }) => {
             color: "#87bcde",
           }}
         >
-          <FiX onClick={() => setSignupPage(false)} size={20} />
+          <FiX
+            size={20}
+            onClick={() => {
+              setSignupPage(false);
+              setFirstView(true);
+            }}
+          />
         </div>
       </Fade>
       {popUp && (

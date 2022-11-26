@@ -31,11 +31,12 @@ export const ButtonHomePage = styled.button`
   font-weight: bold;
   letter-spacing: 2px;
   background-color: rgba(49, 88, 171, 0.175);
+  border-radius: 5px;
   padding: 1rem;
   width: 40vw;
   color: whitesmoke;
   font-size: 1.1rem;
-  border: 1px solid #87bcde;
+  border: none;
   margin-top: 1rem;
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);

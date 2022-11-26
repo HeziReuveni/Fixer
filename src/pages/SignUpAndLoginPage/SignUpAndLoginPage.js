@@ -11,8 +11,14 @@ import SignUpComp from "./SignUpComp";
 import { RemoveScroll } from "react-remove-scroll";
 
 const SignUpAndLoginPage = () => {
-  const { loginPage, setLoginPage, signupPage, setSignupPage, firstView } =
-    useContext(UserContext);
+  const {
+    loginPage,
+    setLoginPage,
+    signupPage,
+    setSignupPage,
+    firstView,
+    setFirstView,
+  } = useContext(UserContext);
 
   const url = (wrap = false) =>
     `${
@@ -48,7 +54,10 @@ const SignUpAndLoginPage = () => {
               boxShadow: "0x 0x 10px white",
             }}
           >
-            <LoginComp setLoginPage={setLoginPage} />
+            <LoginComp
+              setLoginPage={setLoginPage}
+              setFirstView={setFirstView}
+            />
           </div>
         )}
         {signupPage && (
@@ -66,7 +75,10 @@ const SignUpAndLoginPage = () => {
               backdropFilter: "blur(20px)",
             }}
           >
-            <SignUpComp setSignupPage={setSignupPage} />
+            <SignUpComp
+              setSignupPage={setSignupPage}
+              setFirstView={setFirstView}
+            />
           </div>
         )}
       </ContainerConnectPage>

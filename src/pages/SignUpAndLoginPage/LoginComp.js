@@ -15,7 +15,7 @@ import { MdOutlinePassword } from "react-icons/md";
 import { Fade } from "react-reveal";
 import { FiX } from "react-icons/fi";
 
-const LoginComp = ({ setLoginPage }) => {
+const LoginComp = ({ setLoginPage, setFirstView }) => {
   return (
     <div>
       <Fade>
@@ -28,7 +28,13 @@ const LoginComp = ({ setLoginPage }) => {
             color: "#87bcde",
           }}
         >
-          <FiX onClick={() => setLoginPage(false)} size={20} />
+          <FiX
+            size={20}
+            onClick={() => {
+              setLoginPage(false);
+              setFirstView(true);
+            }}
+          />
         </div>
       </Fade>
       <Fade top>
