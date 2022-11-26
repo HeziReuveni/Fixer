@@ -9,17 +9,32 @@ import {
   ContainerIconAndLind,
   SideLine,
 } from "./styles";
-import { FaUser, FaPhone } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa";
+import { RiUserFollowFill } from "react-icons/ri";
 import { MdOutlinePassword } from "react-icons/md";
 import { Fade } from "react-reveal";
+import { FiX } from "react-icons/fi";
 
-const LoginComp = () => {
+const LoginComp = ({ setLoginPage }) => {
   return (
     <div>
+      <Fade>
+        <div
+          style={{
+            position: "absolute",
+            right: "10px",
+            top: "10px",
+            zIndex: "3",
+            color: "#87bcde",
+          }}
+        >
+          <FiX onClick={() => setLoginPage(false)} size={20} />
+        </div>
+      </Fade>
       <Fade top>
         <Form>
           <ContainerTitleForm>
-            <FaUser color="aliceblue" size={30} />
+            <RiUserFollowFill color="#87bcde" size={40} />
           </ContainerTitleForm>
           <TitleForm>התחברות</TitleForm>
           <ContainerInput>
@@ -32,7 +47,7 @@ const LoginComp = () => {
             />
             <ContainerIconAndLind>
               <SideLine />
-              <FaPhone size={20} color="aliceblue" />
+              <FaPhone size={20} color="#87bcde" />
             </ContainerIconAndLind>
           </ContainerInput>
           <ContainerInput>
@@ -46,7 +61,7 @@ const LoginComp = () => {
             />
             <ContainerIconAndLind>
               <SideLine />
-              <MdOutlinePassword size={25} color="aliceblue" />
+              <MdOutlinePassword size={25} color="#87bcde" />
             </ContainerIconAndLind>
           </ContainerInput>
           <div>

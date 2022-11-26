@@ -20,10 +20,11 @@ import { Fade } from "react-reveal";
 import { sendSms } from "../apis/auth";
 import { UserContext } from "../context/context";
 import ImagesUploading from "../multipurpose/ImagesUploading";
+import { FiX } from "react-icons/fi";
 
 import PopUpValidation from "./PopUpValidation";
 
-const SignUpComp = () => {
+const SignUpComp = ({ setSignupPage }) => {
   const [popUp, setPopUp] = useState(false);
   const [popUpImagesUploading, setPopUpImagesUploading] = useState(false);
   const [imageUrl, setImageUrl] = useState();
@@ -56,6 +57,19 @@ const SignUpComp = () => {
 
   return (
     <div>
+      <Fade>
+        <div
+          style={{
+            position: "absolute",
+            right: "10px",
+            top: "10px",
+            zIndex: "3",
+            color: "#87bcde",
+          }}
+        >
+          <FiX onClick={() => setSignupPage(false)} size={20} />
+        </div>
+      </Fade>
       {popUp && (
         <PopUpValidation
           fullName={fullName}
