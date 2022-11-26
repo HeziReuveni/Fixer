@@ -37,13 +37,13 @@ const SignUpAndLoginPage = () => {
               position: "absolute",
               left: "0px",
               top: "0px",
-              height: "100vh",
+              height: "45rem",
               width: "100%",
-
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               backdropFilter: "blur(20px)",
+              boxShadow: "0x 0x 10px white",
             }}
           >
             <LoginComp />
@@ -55,7 +55,7 @@ const SignUpAndLoginPage = () => {
               position: "absolute",
               left: "0px",
               top: "0px",
-              height: "100vh",
+              height: "45rem",
               width: "100%",
               display: "flex",
               alignItems: "center",
