@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import Axios from "axios";
+import React, { useEffect, useContext } from "react";
+import img from "../UserPrivateArea/gifs/unuser.png";
 import {
   ContainerTitle,
   ContainerUl,
@@ -13,12 +13,12 @@ import WaveBorder from "../../SignUpAndLoginPage/WaveBorder";
 import { Fade, Zoom } from "react-reveal";
 import { TiInfoLarge } from "react-icons/ti";
 import { ImHome } from "react-icons/im";
-import img from "../../UserArea/UserPrivateArea/gifs/sefy.jpg";
 import { useHistory } from "react-router-dom";
+import { UserContext } from "../../context/context";
 import { getEmployees } from "../../apis/auth";
 
 const EmployeeListToMobile = () => {
-  const [employees, setEmployees] = useState([]);
+  const { employees, setEmployees } = useContext(UserContext);
   const url = (wrap = false) =>
     `${
       wrap ? "url(" : ""
@@ -58,8 +58,8 @@ const EmployeeListToMobile = () => {
         <Zoom>
           <ContainerUl>
             {employees &&
-              employees.map((item) => (
-                <ContainerLi>
+              employees.map((item, key) => (
+                <ContainerLi key={key}>
                   <ContainerIconRow>
                     <TiInfoLarge size={25} />
                   </ContainerIconRow>
@@ -73,7 +73,7 @@ const EmployeeListToMobile = () => {
                     </div>
                     <div>{item.role}</div>
                   </ContainerTextRow>
-                  <Image src={item.imageUrl && item.imageUrl} />
+                  <Image src={item.imageUrl ? item.imageUrl : img} />
                 </ContainerLi>
               ))}
           </ContainerUl>

@@ -62,22 +62,18 @@ export const InputForm = styled.input`
   }
 `;
 
-export const InputImageFile = styled.input`
-  color: #322d6b;
-  ::-webkit-file-upload-button {
-    visibility: hidden;
-  }
-  ::before {
-    content: "בחר תמונה (לא חובה)";
-    display: inline-block;
-    color: antiquewhite;
-    outline: none;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    cursor: pointer;
-
-    font-size: 10pt;
-  }
+export const InputImageFile = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-right: 0.5rem;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  color: antiquewhite;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
 `;
 
 export const ContainerInputImageFile = styled(ContainerInput)`
@@ -106,7 +102,7 @@ export const ContainerServiceComp = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 30vh;
+  min-height: 30vh;
   width: 100%;
 `;
 

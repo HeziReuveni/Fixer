@@ -55,9 +55,9 @@ const AddForm = () => {
     }
   };
 
-  useEffect(() => {
-    
-  }, [handleSubmit]);
+  useEffect(() => {}, [handleSubmit]);
+
+  console.log(imageUrl);
 
   return (
     <>
@@ -145,6 +145,9 @@ const AddForm = () => {
             </ContainerInputAddForm>
             <ContainerInputAddImageFile>
               <InputAddImageFile
+                onChange={(e) =>
+                  setImageUrl(URL.createObjectURL(e.target.files[0]))
+                }
                 style={{
                   width: "8.3rem",
                 }}

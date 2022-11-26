@@ -102,6 +102,7 @@ const PopUpValidation = ({
                   onChange={(e) => setOptCode(e.target.value)}
                   dir="rtl"
                   placeholder="הזינו כאן את הקוד"
+                  maxLength={4}
                 />
                 <ButtonValidation type="submit">אישור</ButtonValidation>
               </FormToValidation>

@@ -8,6 +8,7 @@ const UserContextProvider = ({ children }) => {
   const [firstView, setFirstView] = useState(true);
   const [name, setName] = useState("");
   const [imgUrl, setImgUrl] = useState("");
+  const [employees, setEmployees] = useState([]);
 
   return (
     <UserContext.Provider
@@ -22,6 +23,8 @@ const UserContextProvider = ({ children }) => {
         name,
         imgUrl,
         setImgUrl,
+        setEmployees,
+        employees,
       }}
     >
       {children}

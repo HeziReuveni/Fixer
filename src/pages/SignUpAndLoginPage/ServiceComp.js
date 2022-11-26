@@ -6,7 +6,7 @@ import { Link } from "react-scroll";
 const ServiceComp = () => {
   return (
     <ContainerServiceComp>
-      אנה בחר את סוג השירות
+      בחרו את סוג השירות
       <Link smooth={true} duration={700} to="home">
         <img
           style={{

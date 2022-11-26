@@ -8,6 +8,7 @@ import WaveBorder from "./WaveBorder";
 import ServiceComp from "./ServiceComp";
 import LoginComp from "./LoginComp";
 import SignUpComp from "./SignUpComp";
+import { RemoveScroll } from "react-remove-scroll";
 
 const SignUpAndLoginPage = () => {
   const { loginPage, signupPage, firstView } = useContext(UserContext);
@@ -24,16 +25,49 @@ const SignUpAndLoginPage = () => {
       style={{
         minHeight: "100vh",
         marginBottom: "-25px",
-        background: "#322d6b",
+        background: "#253237",
         backgroundImage: url(true),
       }}
     >
-      <ContainerConnectPage className="SignUpAndLoginPage">
+      <ContainerConnectPage>
         {firstView && <ServiceComp />}
-        {loginPage && <LoginComp />}
-        {signupPage && <SignUpComp />}
+        {loginPage && (
+          <div
+            style={{
+              position: "absolute",
+              left: "0px",
+              top: "0px",
+              height: "100vh",
+              width: "100%",
+
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              backdropFilter: "blur(20px)",
+            }}
+          >
+            <LoginComp />
+          </div>
+        )}
+        {signupPage && (
+          <div
+            style={{
+              position: "absolute",
+              left: "0px",
+              top: "0px",
+              height: "100vh",
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              backdropFilter: "blur(20px)",
+            }}
+          >
+            <SignUpComp />
+          </div>
+        )}
       </ContainerConnectPage>
-      <WaveBorder upperColor="#322d6b" lowerColor="white" />
+      <WaveBorder upperColor="#253237" lowerColor="white" />
       <ContainerBottomService>
         {firstView && <img alt="firstGif" width="165px" src={serviceGif} />}
         {loginPage && <img alt="loginGif" width="165px" src={loginGif} />}
