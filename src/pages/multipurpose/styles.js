@@ -21,5 +21,5 @@ export const ContainerDisplayUploadImage = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 60vh;
+  height: 80vh;
 `;

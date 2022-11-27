@@ -102,21 +102,29 @@ const ImagesUploading = ({ setPopUpImagesUploading, setSelectedImg }) => {
                       </ButtonImagesUpload>
                     </Fade>
                     <Fade bottom>
-                      <ButtonImagesUpload
-                        onClick={() => {
-                          setSelectedImg(true);
-                          setPopUpImagesUploading(false);
-                        }}
+                      <div
                         style={{
-                          marginTop: "1rem",
-                          background: "none",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
                         }}
                       >
-                        <BsPatchCheckFill
-                          size={50}
-                          color="rgb(22, 159, 22, 0.9)"
-                        />
-                      </ButtonImagesUpload>
+                        <ButtonImagesUpload
+                          onClick={() => {
+                            setSelectedImg(true);
+                            setPopUpImagesUploading(false);
+                          }}
+                          style={{
+                            marginTop: "1rem",
+                            width: "40%",
+                          }}
+                        >
+                          <BsPatchCheckFill
+                            size={40}
+                            color="rgb(22, 159, 22, 0.9)"
+                          />
+                        </ButtonImagesUpload>
+                      </div>
                     </Fade>
                   </div>
                 </ContainerDisplayUploadImage>
