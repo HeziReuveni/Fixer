@@ -16,7 +16,6 @@ const WelcomeMessage = () => {
       left: 0,
       behavior: "smooth",
     });
-
     setSignupPage(true);
     setLoginPage(false);
     setFirstView(false);
@@ -28,7 +27,6 @@ const WelcomeMessage = () => {
       left: 0,
       behavior: "smooth",
     });
-
     setLoginPage(true);
     setSignupPage(false);
     setFirstView(false);
