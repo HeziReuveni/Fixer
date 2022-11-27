@@ -95,36 +95,28 @@ const ImagesUploading = ({ setPopUpImagesUploading, setSelectedImg }) => {
                         style={{
                           marginTop: "1rem",
                         }}
-                        onClick={() => onImageRemove(index)}
+                        onClick={() => {
+                          onImageRemove(index);
+                          setSelectedImg(false);
+                        }}
                       >
                         <CgPlayListRemove size={30} />
                         הסר תמונה
                       </ButtonImagesUpload>
                     </Fade>
                     <Fade bottom>
-                      <div
+                      <ButtonImagesUpload
+                        onClick={() => {
+                          setSelectedImg(true);
+                          setPopUpImagesUploading(false);
+                        }}
                         style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
+                          marginTop: "1rem",
                         }}
                       >
-                        <ButtonImagesUpload
-                          onClick={() => {
-                            setSelectedImg(true);
-                            setPopUpImagesUploading(false);
-                          }}
-                          style={{
-                            marginTop: "1rem",
-                            width: "40%",
-                          }}
-                        >
-                          <BsPatchCheckFill
-                            size={40}
-                            color="rgb(22, 159, 22, 0.9)"
-                          />
-                        </ButtonImagesUpload>
-                      </div>
+                        <BsPatchCheckFill size={30} color="rgb(0, 179, 0)" />
+                        בחר תמונה
+                      </ButtonImagesUpload>
                     </Fade>
                   </div>
                 </ContainerDisplayUploadImage>
