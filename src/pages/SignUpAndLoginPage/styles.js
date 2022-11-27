@@ -9,7 +9,7 @@ export const ContainerConnectPage = styled.div`
 `;
 
 export const Form = styled.form`
-  display: flex;
+  display: ${(props) => (props.popUpImagesUploading ? "none" : "flex")};
   flex-direction: column;
   align-items: center;
   justify-content: space-around;

@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import ImageUploading from "react-images-uploading";
 import { ContainerPopUpValidation } from "../SignUpAndLoginPage/styles";
-import { RemoveScroll } from "react-remove-scroll";
+import { ButtonImagesUpload, ContainerDisplayUploadImage } from "./styles";
 import { FixIcon } from "../SignUpAndLoginPage/styles";
 import { FiX } from "react-icons/fi";
+import { BsImageAlt } from "react-icons/bs";
+import { MdOutlineSwapHoriz } from "react-icons/md";
+import { CgPlayListRemove } from "react-icons/cg";
+import { BsPatchCheckFill } from "react-icons/bs";
 import { Fade } from "react-reveal";
 
-const ImagesUploading = ({ setPopUpImagesUploading }) => {
+const ImagesUploading = ({ setPopUpImagesUploading, setSelectedImg }) => {
   const [images, setImages] = useState([]);
   const [openAddButton, setOpenAddButton] = useState(false);
   const maxNumber = 1;
@@ -43,7 +47,7 @@ const ImagesUploading = ({ setPopUpImagesUploading }) => {
           {({
             imageList,
             onImageUpload,
-            onImageRemoveAll,
+
             onImageUpdate,
             onImageRemove,
             isDragging,
@@ -51,29 +55,71 @@ const ImagesUploading = ({ setPopUpImagesUploading }) => {
           }) => (
             <div className="upload__image-wrapper">
               {!openAddButton && (
-                <button
+                <ButtonImagesUpload
                   style={isDragging ? { color: "red" } : undefined}
                   onClick={onImageUpload}
                   {...dragProps}
                 >
+                  <BsImageAlt size={22} color="aliceblue" />
                   בחר תמונה
-                </button>
+                </ButtonImagesUpload>
               )}
-              &nbsp;
+
               {imageList.map((image, index) => (
-                <div key={index} className="image-item">
-                  <img src={image["data_url"]} alt="" width="100" />
+                <ContainerDisplayUploadImage key={index} className="image-item">
+                  <Fade top>
+                    <img
+                      style={{
+                        borderRadius: "50%",
+                        border: "thick double rgba(255, 255, 255, 0.5)",
+                      }}
+                      src={image["data_url"]}
+                      alt=""
+                      width="200"
+                      height="200"
+                    />
+                  </Fade>
                   <div className="image-item__btn-wrapper">
                     {imageList && (
-                      <button onClick={() => onImageUpdate(index)}>
-                        החלף תמונה
-                      </button>
+                      <Fade left>
+                        <ButtonImagesUpload
+                          onClick={() => onImageUpdate(index)}
+                        >
+                          <MdOutlineSwapHoriz size={30} />
+                          החלף תמונה
+                        </ButtonImagesUpload>
+                      </Fade>
                     )}
-                    <button onClick={() => onImageRemove(index)}>
-                      הסר תמונה
-                    </button>
+                    <Fade right>
+                      <ButtonImagesUpload
+                        style={{
+                          marginTop: "1rem",
+                        }}
+                        onClick={() => onImageRemove(index)}
+                      >
+                        <CgPlayListRemove size={30} />
+                        הסר תמונה
+                      </ButtonImagesUpload>
+                    </Fade>
+                    <Fade bottom>
+                      <ButtonImagesUpload
+                        onClick={() => {
+                          setSelectedImg(true);
+                          setPopUpImagesUploading(false);
+                        }}
+                        style={{
+                          marginTop: "1rem",
+                          background: "none",
+                        }}
+                      >
+                        <BsPatchCheckFill
+                          size={50}
+                          color="rgb(22, 159, 22, 0.9)"
+                        />
+                      </ButtonImagesUpload>
+                    </Fade>
                   </div>
-                </div>
+                </ContainerDisplayUploadImage>
               ))}
             </div>
           )}

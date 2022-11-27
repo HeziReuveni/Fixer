@@ -21,7 +21,7 @@ import { sendSms } from "../apis/auth";
 import { UserContext } from "../context/context";
 import ImagesUploading from "../multipurpose/ImagesUploading";
 import { FiX } from "react-icons/fi";
-import { RemoveScroll } from "react-remove-scroll";
+import { BiCheck } from "react-icons/bi";
 
 import PopUpValidation from "./PopUpValidation";
 
@@ -35,6 +35,7 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
 
   const [popUp, setPopUp] = useState(false);
   const [popUpImagesUploading, setPopUpImagesUploading] = useState(false);
+  const [selectedImg, setSelectedImg] = useState(false);
   const [imageUrl, setImageUrl] = useState();
   const [formDataSignUp, setFormDataSignUp] = useState({
     fullName: "",
@@ -66,27 +67,23 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
   return (
     <div>
       {popUpImagesUploading && (
-        <RemoveScroll>
-          <div>
-            <Fade>
-              <div
-                style={{
-                  position: "fixed",
-                  right: "0%",
-                  top: "0%",
-                  zIndex: "2",
-                  height: "100%",
-                  width: "100%",
-                  backgroundColor: "rgba(30,30,30,0.5)",
-                }}
-              >
-                <ImagesUploading
-                  setPopUpImagesUploading={setPopUpImagesUploading}
-                />
-              </div>
-            </Fade>
+        <Fade>
+          <div
+            style={{
+              position: "fixed",
+              right: "0%",
+              top: "0%",
+              zIndex: "2",
+              height: "100%",
+              width: "100%",
+            }}
+          >
+            <ImagesUploading
+              setPopUpImagesUploading={setPopUpImagesUploading}
+              setSelectedImg={setSelectedImg}
+            />
           </div>
-        </RemoveScroll>
+        </Fade>
       )}
       <Fade>
         <div
@@ -129,6 +126,7 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
           }}
         >
           <Form
+            popUpImagesUploading={popUpImagesUploading}
             onSubmit={handleDetailsToSignUp}
             style={{
               height: "42rem",
@@ -222,11 +220,21 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
             <ContainerInputImageFile>
               <InputImageFile
                 onClick={() => {
-                  setPopUpImagesUploading(!popUpImagesUploading);
-                  // setSignupPage(false);
+                  {
+                    setPopUpImagesUploading(!popUpImagesUploading);
+                    window.scrollTo({
+                      top: 0,
+                      left: 0,
+                      behavior: "smooth",
+                    });
+                  }
                 }}
               >
-                הוסף תמונה (לא חובה)
+                {selectedImg ? (
+                  <BiCheck size={35} color="rgba(37, 176, 37, 0.9)" />
+                ) : (
+                  " הוסף תמונה (לא חובה)"
+                )}
               </InputImageFile>
               <ContainerIconAndLind>
                 <SideLine
