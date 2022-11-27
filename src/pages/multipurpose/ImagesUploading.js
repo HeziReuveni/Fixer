@@ -59,7 +59,7 @@ const ImagesUploading = ({ setPopUpImagesUploading, setSelectedImg }) => {
                   onClick={onImageUpload}
                   {...dragProps}
                 >
-                  <BsImageAlt size={22} color="aliceblue" />
+                  <BsImageAlt size={22} color="rgb(0, 128, 255)" />
                   בחר תמונה
                 </ButtonImagesUpload>
               )}
@@ -84,7 +84,10 @@ const ImagesUploading = ({ setPopUpImagesUploading, setSelectedImg }) => {
                         <ButtonImagesUpload
                           onClick={() => onImageUpdate(index)}
                         >
-                          <MdOutlineSwapHoriz size={30} />
+                          <MdOutlineSwapHoriz
+                            size={30}
+                            color="rgb(0, 128, 255)"
+                          />
                           החלף תמונה
                         </ButtonImagesUpload>
                       </Fade>
@@ -99,7 +102,7 @@ const ImagesUploading = ({ setPopUpImagesUploading, setSelectedImg }) => {
                           setSelectedImg(false);
                         }}
                       >
-                        <CgPlayListRemove size={30} />
+                        <CgPlayListRemove size={30} color="rgb(0, 128, 255)" />
                         הסר תמונה
                       </ButtonImagesUpload>
                     </Fade>
