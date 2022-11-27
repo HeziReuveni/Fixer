@@ -54,6 +54,11 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
 
   const handleDetailsToSignUp = (e) => {
     e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
     if (fullName && phoneNumber && password && email && idNumber) {
       setImgUrl(imageUrl);
       setName(fullName);
@@ -127,6 +132,7 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
         >
           <Form
             popUpImagesUploading={popUpImagesUploading}
+            popUp={popUp}
             onSubmit={handleDetailsToSignUp}
             style={{
               height: "42rem",
@@ -231,7 +237,7 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
                 }}
               >
                 {selectedImg ? (
-                  <BiCheck size={35} color="rgba(37, 176, 37, 0.9)" />
+                  <BiCheck size={35} color="rgb(0, 179, 0)" />
                 ) : (
                   " הוסף תמונה (לא חובה)"
                 )}

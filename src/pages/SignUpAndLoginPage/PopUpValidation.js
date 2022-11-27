@@ -56,60 +56,60 @@ const PopUpValidation = ({
 
   return (
     <div>
-      <RemoveScroll>
-        <FixIcon resultValidation={resultValidation}>
-          <Zoom>
-            <FiX size={20} color="aliceblue" onClick={() => setPopUp(false)} />
-          </Zoom>
-        </FixIcon>
-        <ContainerPopUpValidation>
-          <Zoom top>
-            <ContainerContentPopUp>
-              <MessageSuccessfully resultValidation={resultValidation}>
-                <Zoom>
-                  <BsPatchCheckFill
-                    style={{
-                      marginTop: "0.5rem",
-                    }}
-                    size={100}
-                  />
-                </Zoom>
-              </MessageSuccessfully>
-              <FormToValidation
-                resultValidation={resultValidation}
-                onSubmit={handleSendOptCode}
-              >
-                <ContainerTextMessage dir="rtl">
-                  שימו לב ברגעים הקרובים ישלח לכם מסרון לנייד עם קוד בעל 4 ספרות
-                  לשם אימות, אנה הזינו אותו כאן כדי לסיים את תהליך ההרשמה. במידה
-                  ולא קיבלתם מסרון זה יש לוודא כי הוזן מספר פלאפון תקין, ולנסות
-                  בשנית.
-                </ContainerTextMessage>
-                {!errorMessage && <MdPhonelinkLock size={30} color="brown" />}
-                {errorMessage && (
-                  <Fade>
-                    <div
-                      style={{
-                        textAlign: "center",
-                      }}
-                    >
-                      <ParaError>הוזן קוד שגוי</ParaError>
-                      <TiWarning size={30} color="#d62d49" />
-                    </div>
-                  </Fade>
-                )}
-                <InputValidation
-                  onChange={(e) => setOptCode(e.target.value)}
-                  dir="rtl"
-                  placeholder="הזינו כאן את הקוד"
-                  maxLength={4}
+      <FixIcon resultValidation={resultValidation}>
+        <Zoom>
+          <FiX size={20} color="aliceblue" onClick={() => setPopUp(false)} />
+        </Zoom>
+      </FixIcon>
+      <ContainerPopUpValidation>
+        <Zoom top>
+          <ContainerContentPopUp>
+            <MessageSuccessfully resultValidation={resultValidation}>
+              <Zoom>
+                <BsPatchCheckFill
+                  style={{
+                    marginTop: "0.5rem",
+                  }}
+                  size={100}
                 />
-                <ButtonValidation type="submit">אישור</ButtonValidation>
-              </FormToValidation>
-            </ContainerContentPopUp>
-          </Zoom>
-        </ContainerPopUpValidation>
-      </RemoveScroll>
+              </Zoom>
+            </MessageSuccessfully>
+            <FormToValidation
+              resultValidation={resultValidation}
+              onSubmit={handleSendOptCode}
+            >
+              <ContainerTextMessage dir="rtl">
+                שימו לב ברגעים הקרובים ישלח לכם מסרון לנייד עם קוד בעל 4 ספרות
+                לשם אימות, אנה הזינו אותו כאן כדי לסיים את תהליך ההרשמה. במידה
+                ולא קיבלתם מסרון זה יש לוודא כי הוזן מספר פלאפון תקין, ולנסות
+                בשנית.
+              </ContainerTextMessage>
+              {!errorMessage && (
+                <MdPhonelinkLock size={30} color="rgb(0, 179, 0)" />
+              )}
+              {errorMessage && (
+                <Fade>
+                  <div
+                    style={{
+                      textAlign: "center",
+                    }}
+                  >
+                    <ParaError>הוזן קוד שגוי</ParaError>
+                    <TiWarning size={30} color="#d62d49" />
+                  </div>
+                </Fade>
+              )}
+              <InputValidation
+                onChange={(e) => setOptCode(e.target.value)}
+                dir="rtl"
+                placeholder="הזינו כאן את הקוד"
+                maxLength={4}
+              />
+              <ButtonValidation type="submit">אישור</ButtonValidation>
+            </FormToValidation>
+          </ContainerContentPopUp>
+        </Zoom>
+      </ContainerPopUpValidation>
     </div>
   );
 };

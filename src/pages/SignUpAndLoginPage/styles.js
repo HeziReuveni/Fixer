@@ -9,7 +9,8 @@ export const ContainerConnectPage = styled.div`
 `;
 
 export const Form = styled.form`
-  display: ${(props) => (props.popUpImagesUploading ? "none" : "flex")};
+  display: ${(props) =>
+    props.popUpImagesUploading || props.popUp ? "none" : "flex"};
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
@@ -165,7 +166,7 @@ export const FormToValidation = styled.form`
   justify-content: space-evenly;
   width: 80%;
   min-height: 25rem;
-  background-color: rgba(255, 255, 255, 0.7);
+  background: none;
 `;
 
 export const MessageSuccessfully = styled.div`
@@ -189,23 +190,24 @@ export const ContainerTextMessage = styled.div`
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
   width: 90%;
-  color: #393191;
+  color: #87bcde;
   font-weight: bold;
 `;
 
 export const InputValidation = styled.input`
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.7);
-  border: 1px solid #393191;
+  border: 1px solid aliceblue;
   border-radius: 5px;
-  color: #393191;
-  padding: 8px;
+  color: aliceblue;
+  padding: 18px;
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
   outline: none;
+  background: none;
   ::placeholder {
-    color: #393191;
+    color: aliceblue;
     text-align: center;
+    letter-spacing: 1px;
   }
 `;
 
@@ -214,8 +216,8 @@ export const ButtonValidation = styled.button`
   align-items: center;
   justify-content: center;
   background: none;
-  border: 1px solid #393191;
-  color: #393191;
+  border: 1px solid #87bcde;
+  color: #87bcde;
   width: 40%;
   border-radius: 5px;
   display: flex;

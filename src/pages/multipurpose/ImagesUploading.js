@@ -16,7 +16,6 @@ const ImagesUploading = ({ setPopUpImagesUploading, setSelectedImg }) => {
   const maxNumber = 1;
 
   const onChange = (imageList, addUpdateIndex) => {
-    console.log(imageList, addUpdateIndex);
     setImages(imageList);
     if (addUpdateIndex) {
       setOpenAddButton(true);
