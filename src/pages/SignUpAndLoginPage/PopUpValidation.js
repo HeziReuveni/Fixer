@@ -105,7 +105,18 @@ const PopUpValidation = ({
                 placeholder="הזינו כאן את הקוד"
                 maxLength={4}
               />
-              <ButtonValidation type="submit">אישור</ButtonValidation>
+              <ButtonValidation
+                type="submit"
+                onClick={() =>
+                  window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth",
+                  })
+                }
+              >
+                אישור
+              </ButtonValidation>
             </FormToValidation>
           </ContainerContentPopUp>
         </Zoom>

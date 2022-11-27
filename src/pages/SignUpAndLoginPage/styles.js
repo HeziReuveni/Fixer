@@ -196,16 +196,16 @@ export const ContainerTextMessage = styled.div`
 
 export const InputValidation = styled.input`
   text-align: center;
-  border: 1px solid aliceblue;
+  border: 1px solid #87bcde;
   border-radius: 5px;
-  color: aliceblue;
+  color: #87bcde;
   padding: 18px;
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
   outline: none;
   background: none;
   ::placeholder {
-    color: aliceblue;
+    color: #87bcde;
     text-align: center;
     letter-spacing: 1px;
   }

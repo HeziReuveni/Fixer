@@ -11,16 +11,28 @@ import { Link } from "react-scroll";
 const WelcomeMessage = () => {
   const { setLoginPage, setSignupPage, setFirstView } = useContext(UserContext);
   const registerOnClick = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+
     setSignupPage(true);
     setLoginPage(false);
     setFirstView(false);
-  }
+  };
 
   const loginOnClick = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+
     setLoginPage(true);
     setSignupPage(false);
     setFirstView(false);
-  }
+  };
 
   return (
     <>
@@ -40,11 +52,7 @@ const WelcomeMessage = () => {
             duration={700}
             to="SignUpAndLoginPage"
           >
-            <ButtonHomePage
-              onClick={loginOnClick}
-            >
-              התחברות
-            </ButtonHomePage>
+            <ButtonHomePage onClick={loginOnClick}>התחברות</ButtonHomePage>
           </Link>
         </Fade>
         <Fade left>
@@ -54,11 +62,7 @@ const WelcomeMessage = () => {
             duration={700}
             to="SignUpAndLoginPage"
           >
-            <ButtonHomePage
-              onClick={registerOnClick}
-            >
-              הרשמה
-            </ButtonHomePage>
+            <ButtonHomePage onClick={registerOnClick}>הרשמה</ButtonHomePage>
           </Link>
         </Fade>
       </ContainerWelcomeMessage>

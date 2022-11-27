@@ -139,7 +139,17 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
             }}
           >
             <RiUserAddFill color="#87bcde" size={40} />
-            <TitleForm>הרשמה</TitleForm>
+            <TitleForm
+              onClick={() =>
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                })
+              }
+            >
+              הרשמה
+            </TitleForm>
             <ContainerInput>
               <InputForm
                 required
