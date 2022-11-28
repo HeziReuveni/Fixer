@@ -18,7 +18,6 @@ import { Zoom, Fade } from "react-reveal";
 import { checkOptCode } from "../apis/auth";
 import { signUp } from "../apis/auth";
 import { useHistory } from "react-router-dom";
-import { RemoveScroll } from "react-remove-scroll";
 
 const PopUpValidation = ({
   setPopUp,
@@ -36,22 +35,15 @@ const PopUpValidation = ({
 
   const handleSendOptCode = async (e) => {
     e.preventDefault();
-    if (optCode === undefined) {
+    const result = await checkOptCode(optCode);
+    if (result) {
+      signUp(fullName, phoneNumber, password, email, idNumber, imageUrl[0]);
       setTimeout(() => {
         history.push("/user-area");
       }, 2000);
-      setResultValidation(true);
-      setErrorMessage(false);
     }
-    // const result = await checkOptCode(optCode);
-    // if (result) {
-    //   signUp(fullName, phoneNumber, password, email, idNumber, imageUrl);
-    //   setTimeout(() => {
-    //     history.push("/user-area");
-    //   }, 2000);
-    // }
-    // setResultValidation(result);
-    // setErrorMessage(!result);
+    setResultValidation(result);
+    setErrorMessage(!result);
   };
 
   return (

@@ -9,7 +9,7 @@ export const signUp = async (
   imageUrl
 ) => {
   const response = await Axios.post(
-    `${process.env.REACT_APP_BASE_URL}/create-details`,
+    `${process.env.REACT_APP_BASE_URL}/create-user`,
     {
       fullName,
       phoneNumber,
@@ -45,7 +45,7 @@ export const checkOptCode = async (userCode) => {
 export const addEmployee = async (fullName, role, salary, email, imageUrl) => {
   try {
     const response = await Axios.post(
-      `${process.env.REACT_APP_BASE_URL}/create-user-details`,
+      `${process.env.REACT_APP_BASE_URL}/create-user-employees`,
       {
         fullName,
         role,

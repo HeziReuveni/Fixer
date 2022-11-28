@@ -9,14 +9,21 @@ import { MdOutlineSwapHoriz } from "react-icons/md";
 import { CgPlayListRemove } from "react-icons/cg";
 import { BsPatchCheckFill } from "react-icons/bs";
 import { Fade } from "react-reveal";
+import { resizeFile } from "./utils/compare";
 
-const ImagesUploading = ({ setPopUpImagesUploading, setSelectedImg }) => {
-  const [images, setImages] = useState([]);
+const ImagesUploading = ({
+  setPopUpImagesUploading,
+  setSelectedImg,
+  setImageUrl,
+  imageUrl,
+}) => {
   const [openAddButton, setOpenAddButton] = useState(false);
   const maxNumber = 1;
 
-  const onChange = (imageList, addUpdateIndex) => {
-    setImages(imageList);
+  const onChange = async (imageList, addUpdateIndex) => {
+    // const image = await resizeFile(imageList[0].file);
+    // setImageUrl([image]);
+    setImageUrl(imageList);
     if (addUpdateIndex) {
       setOpenAddButton(true);
     } else {
@@ -38,7 +45,7 @@ const ImagesUploading = ({ setPopUpImagesUploading, setSelectedImg }) => {
       <ContainerPopUpValidation>
         <ImageUploading
           multiple
-          value={images}
+          value={imageUrl}
           onChange={onChange}
           maxNumber={maxNumber}
           dataURLKey="data_url"
@@ -46,7 +53,6 @@ const ImagesUploading = ({ setPopUpImagesUploading, setSelectedImg }) => {
           {({
             imageList,
             onImageUpload,
-
             onImageUpdate,
             onImageRemove,
             isDragging,
@@ -70,7 +76,8 @@ const ImagesUploading = ({ setPopUpImagesUploading, setSelectedImg }) => {
                     <img
                       style={{
                         borderRadius: "50%",
-                        border: "thick double rgba(255, 255, 255, 0.5)",
+                        border: "thick double rgba(255, 255, 255, 0.3)",
+                        padding: "0.1rem",
                       }}
                       src={image["data_url"]}
                       alt=""
@@ -79,26 +86,27 @@ const ImagesUploading = ({ setPopUpImagesUploading, setSelectedImg }) => {
                     />
                   </Fade>
                   <div className="image-item__btn-wrapper">
-                    {imageList && (
-                      <Fade left>
-                        <ButtonImagesUpload
-                          onClick={() => onImageUpdate(index)}
-                        >
-                          <MdOutlineSwapHoriz
-                            size={30}
-                            color="rgb(0, 128, 255)"
-                          />
-                          החלף תמונה
-                        </ButtonImagesUpload>
-                      </Fade>
-                    )}
+                    <Fade left>
+                      <ButtonImagesUpload
+                        onClick={() => {
+                          onImageUpdate(index);
+                        }}
+                      >
+                        <MdOutlineSwapHoriz
+                          size={30}
+                          color="rgb(0, 128, 255)"
+                        />
+                        החלף תמונה
+                      </ButtonImagesUpload>
+                    </Fade>
                     <Fade right>
                       <ButtonImagesUpload
                         style={{
                           marginTop: "1rem",
                         }}
                         onClick={() => {
-                          onImageRemove(index);
+                          onImageRemove(0);
+
                           setSelectedImg(false);
                         }}
                       >

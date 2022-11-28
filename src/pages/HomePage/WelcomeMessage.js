@@ -6,7 +6,6 @@ import {
   ButtonHomePage,
 } from "./styles";
 import { Fade } from "react-reveal";
-import { Link } from "react-scroll";
 
 const WelcomeMessage = () => {
   const { setLoginPage, setSignupPage, setFirstView } = useContext(UserContext);
@@ -44,24 +43,10 @@ const WelcomeMessage = () => {
           </ContainerTextMessage>
         </Fade>
         <Fade right>
-          <Link
-            smooth={true}
-            offset={300}
-            duration={700}
-            to="SignUpAndLoginPage"
-          >
-            <ButtonHomePage onClick={loginOnClick}>התחברות</ButtonHomePage>
-          </Link>
+          <ButtonHomePage onClick={loginOnClick}>התחברות</ButtonHomePage>
         </Fade>
         <Fade left>
-          <Link
-            smooth={true}
-            offset={100}
-            duration={700}
-            to="SignUpAndLoginPage"
-          >
-            <ButtonHomePage onClick={registerOnClick}>הרשמה</ButtonHomePage>
-          </Link>
+          <ButtonHomePage onClick={registerOnClick}>הרשמה</ButtonHomePage>
         </Fade>
       </ContainerWelcomeMessage>
     </>

@@ -86,6 +86,8 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
             <ImagesUploading
               setPopUpImagesUploading={setPopUpImagesUploading}
               setSelectedImg={setSelectedImg}
+              setImageUrl={setImageUrl}
+              imageUrl={imageUrl}
             />
           </div>
         </Fade>
@@ -139,17 +141,7 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
             }}
           >
             <RiUserAddFill color="#87bcde" size={40} />
-            <TitleForm
-              onClick={() =>
-                window.scrollTo({
-                  top: 0,
-                  left: 0,
-                  behavior: "smooth",
-                })
-              }
-            >
-              הרשמה
-            </TitleForm>
+            <TitleForm>הרשמה</TitleForm>
             <ContainerInput>
               <InputForm
                 required
