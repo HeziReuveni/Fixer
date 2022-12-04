@@ -9,23 +9,14 @@ import { Fade } from "react-reveal";
 
 const WelcomeMessage = () => {
   const { setLoginPage, setSignupPage, setFirstView } = useContext(UserContext);
+
   const registerOnClick = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
     setSignupPage(true);
     setLoginPage(false);
     setFirstView(false);
   };
 
   const loginOnClick = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
     setLoginPage(true);
     setSignupPage(false);
     setFirstView(false);

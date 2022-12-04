@@ -27,6 +27,7 @@ const PopUpValidation = ({
   email,
   idNumber,
   imageUrl,
+  imgUrl,
 }) => {
   const [optCode, setOptCode] = useState();
   const [resultValidation, setResultValidation] = useState(false);
@@ -37,7 +38,8 @@ const PopUpValidation = ({
     e.preventDefault();
     const result = await checkOptCode(optCode);
     if (result) {
-      signUp(fullName, phoneNumber, password, email, idNumber, imageUrl[0]);
+      signUp(fullName, phoneNumber, password, email, idNumber, imgUrl);
+      console.log(imgUrl);
       setTimeout(() => {
         history.push("/user-area");
       }, 2000);

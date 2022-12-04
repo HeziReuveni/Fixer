@@ -16,13 +16,16 @@ const ImagesUploading = ({
   setSelectedImg,
   setImageUrl,
   imageUrl,
+  setImgUrl,
 }) => {
   const [openAddButton, setOpenAddButton] = useState(false);
   const maxNumber = 1;
 
   const onChange = async (imageList, addUpdateIndex) => {
-    // const image = await resizeFile(imageList[0].file);
-    // setImageUrl([image]);
+    const image = await resizeFile(imageList[0].file);
+    setImgUrl(image);
+    console.log(image);
+    console.log(imgUrl);
     setImageUrl(imageList);
     if (addUpdateIndex) {
       setOpenAddButton(true);

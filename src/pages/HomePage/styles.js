@@ -4,7 +4,7 @@ export const ContainerHomePage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 130vh;
+  min-height: 100vh;
   width: 100%;
 `;
 
@@ -12,7 +12,7 @@ export const ContainerWelcomeMessage = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: stretch;
+  justify-content: center;
   width: 90%;
   height: 25rem;
 `;

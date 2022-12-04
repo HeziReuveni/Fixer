@@ -8,18 +8,23 @@ export const signUp = async (
   idNumber,
   imageUrl
 ) => {
-  const response = await Axios.post(
-    `${process.env.REACT_APP_BASE_URL}/create-user`,
-    {
-      fullName,
-      phoneNumber,
-      password,
-      email,
-      idNumber,
-      imageUrl,
-    }
-  );
-  console.log(response);
+  try {
+    const response = await Axios.post(
+      `${process.env.REACT_APP_BASE_URL}/create-user`,
+      {
+        fullName,
+        phoneNumber,
+        password,
+        email,
+        idNumber,
+        imageUrl,
+      }
+    );
+    console.log(response);
+    return true;
+  } catch (error) {
+    return false;
+  }
 };
 
 export const sendSms = async (phoneNumber) => {

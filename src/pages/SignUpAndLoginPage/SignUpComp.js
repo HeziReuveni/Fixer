@@ -44,7 +44,7 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
     email: "",
     idNumber: "",
   });
-  const { setName, setImgUrl } = useContext(UserContext);
+  const { setName, setImgUrl, imgUrl } = useContext(UserContext);
   const { fullName, phoneNumber, password, email, idNumber } = formDataSignUp;
 
   const onChange = (e) => {
@@ -87,6 +87,7 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
               setPopUpImagesUploading={setPopUpImagesUploading}
               setSelectedImg={setSelectedImg}
               setImageUrl={setImageUrl}
+              setImgUrl={setImgUrl}
               imageUrl={imageUrl}
             />
           </div>
@@ -119,6 +120,7 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
           email={email}
           idNumber={idNumber}
           imageUrl={imageUrl}
+          imgUrl={imgUrl}
           setPopUp={setPopUp}
         />
       )}
