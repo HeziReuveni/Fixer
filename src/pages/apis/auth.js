@@ -6,7 +6,7 @@ export const signUp = async (
   password,
   email,
   idNumber,
-  imageUrl
+  imgUrl
 ) => {
   try {
     const response = await Axios.post(
@@ -17,10 +17,11 @@ export const signUp = async (
         password,
         email,
         idNumber,
-        imageUrl,
+        imgUrl,
       }
     );
-    console.log(response);
+    const token = response.data;
+    localStorage.setItem("token", token);
     return true;
   } catch (error) {
     return false;

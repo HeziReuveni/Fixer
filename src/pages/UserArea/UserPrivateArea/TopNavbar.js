@@ -1,14 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { ContainerTopNavbar, UserImage, LogOutIcon } from "./styles";
 import WaveBorder from "../../SignUpAndLoginPage/WaveBorder";
 import img from "./gifs/unuser.png";
 import { FiLogOut } from "react-icons/fi";
 import { Fade } from "react-reveal";
-import { UserContext } from "../../context/context";
 import { useHistory } from "react-router-dom";
 
-const TopNavbar = () => {
-  const { name, imgUrl } = useContext(UserContext);
+
+const TopNavbar = ({ fullName, imgUrl }) => {
   let history = useHistory();
   const url = (wrap = false) =>
     `${
@@ -16,6 +15,11 @@ const TopNavbar = () => {
     }https://awv3node-homepage.surge.sh/build/assets/stars.svg${
       wrap ? ")" : ""
     }`;
+
+  const logOut = () => {
+    localStorage.removeItem("token");
+    history.push("/");
+  };
 
   return (
     <div
@@ -25,15 +29,15 @@ const TopNavbar = () => {
     >
       <Fade top>
         <div>
-          <LogOutIcon onClick={() => history.push("/")}>
-            <FiLogOut />
+          <LogOutIcon>
+            <FiLogOut onClick={logOut} size={25} />
           </LogOutIcon>
           <ContainerTopNavbar
             style={{
               backgroundImage: url(true),
             }}
           >
-            <p dir="rtl">ברוך הבא {name}</p>
+            <p dir="rtl">ברוך הבא {fullName}</p>
             <div>
               <UserImage src={imgUrl ? imgUrl : img} />
             </div>

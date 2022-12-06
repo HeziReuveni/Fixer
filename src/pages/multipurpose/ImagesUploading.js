@@ -24,8 +24,7 @@ const ImagesUploading = ({
   const onChange = async (imageList, addUpdateIndex) => {
     const image = await resizeFile(imageList[0].file);
     setImgUrl(image);
-    console.log(image);
-    console.log(imgUrl);
+    // console.log(image);
     setImageUrl(imageList);
     if (addUpdateIndex) {
       setOpenAddButton(true);

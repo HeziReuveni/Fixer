@@ -22,17 +22,10 @@ import { UserContext } from "../context/context";
 import ImagesUploading from "../multipurpose/ImagesUploading";
 import { FiX } from "react-icons/fi";
 import { BiCheck } from "react-icons/bi";
-
+import { signUp } from "../apis/auth";
 import PopUpValidation from "./PopUpValidation";
 
 const SignUpComp = ({ setSignupPage, setFirstView }) => {
-  const url = (wrap = false) =>
-    `${
-      wrap ? "url(" : ""
-    }https://awv3node-homepage.surge.sh/build/assets/stars.svg${
-      wrap ? ")" : ""
-    }`;
-
   const [popUp, setPopUp] = useState(false);
   const [popUpImagesUploading, setPopUpImagesUploading] = useState(false);
   const [selectedImg, setSelectedImg] = useState(false);
@@ -52,16 +45,17 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
     setFormDataSignUp({ ...formDataSignUp, [e.target.name]: e.target.value });
   };
 
-  const handleDetailsToSignUp = (e) => {
+  const handleDetailsToSignUp = async (e) => {
     e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-    if (fullName && phoneNumber && password && email && idNumber) {
-      setImgUrl(imageUrl);
-      setName(fullName);
+    const response = await signUp(
+      fullName,
+      phoneNumber,
+      password,
+      email,
+      idNumber,
+      imgUrl
+    );
+    if (response) {
       setPopUp(true);
       sendSms(phoneNumber);
     } else {
