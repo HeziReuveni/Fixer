@@ -6,7 +6,12 @@ import SignUpAndLoginPage from "../SignUpAndLoginPage/SignUpAndLoginPage";
 
 const HomePage = () => {
   return (
-    <div className="home">
+    <div
+      style={{
+        height: "100vh",
+      }}
+      className="home"
+    >
       <ParticlesBg type="cobweb" num={30} bg={true} color="#87BCDE" />
       <ContainerHomePage>
         <WelcomeMessage />
