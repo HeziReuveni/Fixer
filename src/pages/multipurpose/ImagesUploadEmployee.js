@@ -1,50 +1,33 @@
 import React, { useState } from "react";
 import ImageUploading from "react-images-uploading";
-import { ContainerPopUpValidation } from "../SignUpAndLoginPage/styles";
 import { ButtonImagesUpload, ContainerDisplayUploadImage } from "./styles";
-import { FixIcon } from "../SignUpAndLoginPage/styles";
-import { FiX } from "react-icons/fi";
-import { BsImageAlt } from "react-icons/bs";
+import { ContainerPopUpValidation } from "../SignUpAndLoginPage/styles";
 import { MdOutlineSwapHoriz } from "react-icons/md";
-import { CgPlayListRemove } from "react-icons/cg";
-import { BsPatchCheckFill } from "react-icons/bs";
+import { AiFillDelete } from "react-icons/ai";
+import { BsPatchCheckFill, BsImageAlt } from "react-icons/bs";
 import { Fade } from "react-reveal";
 import { resizeFile } from "./utils/compare";
 
-const ImagesUploading = ({
-  setPopUpImagesUploading,
-  setSelectedImg,
-  setImageUrl,
-  imageUrl,
-  setImgUrl,
-}) => {
-  const [openAddButton, setOpenAddButton] = useState(true);
+const ImagesUploadEmployee = ({ setImageUrl, setImagesUploading }) => {
+  const [images, setImages] = useState([]);
+  const [displayAddButton, setDisplayAddButton] = useState(true);
   const maxNumber = 1;
 
   const onChange = async (imageList, addUpdateIndex) => {
     const image = await resizeFile(imageList[0].file);
-    setImgUrl(image);
-    setImageUrl(imageList);
+    setImageUrl(image);
     if (addUpdateIndex || imageList) {
-      setOpenAddButton(false);
+      setImages(imageList);
+      setDisplayAddButton(false);
     }
   };
 
   return (
     <div>
-      <FixIcon>
-        <Fade>
-          <FiX
-            size={20}
-            color="aliceblue"
-            onClick={() => setPopUpImagesUploading(false)}
-          />
-        </Fade>
-      </FixIcon>
       <ContainerPopUpValidation>
         <ImageUploading
           multiple
-          value={imageUrl}
+          value={images}
           onChange={onChange}
           maxNumber={maxNumber}
           dataURLKey="data_url"
@@ -52,19 +35,25 @@ const ImagesUploading = ({
           {({
             imageList,
             onImageUpload,
+            onImageRemoveAll,
             onImageUpdate,
             onImageRemove,
             isDragging,
             dragProps,
           }) => (
+            // write your building UI
             <div className="upload__image-wrapper">
-              {openAddButton && (
+              {displayAddButton && (
                 <ButtonImagesUpload
                   style={isDragging ? { color: "red" } : undefined}
+                  style={{
+                    backgroundColor: "#3225bf",
+                    color: "white",
+                  }}
                   onClick={onImageUpload}
                   {...dragProps}
                 >
-                  <BsImageAlt size={22} color="rgb(0, 128, 255)" />
+                  <BsImageAlt size={22} color="white" />
                   בחר תמונה
                 </ButtonImagesUpload>
               )}
@@ -75,7 +64,7 @@ const ImagesUploading = ({
                     <img
                       style={{
                         borderRadius: "50%",
-                        border: "thick double rgba(255, 255, 255, 0.3)",
+                        border: "thick double rgba(0, 67, 143, 0.6)",
                         padding: "0.1rem",
                       }}
                       src={image["data_url"]}
@@ -87,43 +76,42 @@ const ImagesUploading = ({
                   <div className="image-item__btn-wrapper">
                     <Fade left>
                       <ButtonImagesUpload
-                        onClick={() => {
-                          onImageUpdate(index);
+                        style={{
+                          backgroundColor: "#3225bf",
+                          color: "white",
                         }}
+                        onClick={() => onImageUpdate(index)}
                       >
-                        <MdOutlineSwapHoriz
-                          size={30}
-                          color="rgb(0, 128, 255)"
-                        />
+                        <MdOutlineSwapHoriz size={30} color="white" />
                         החלף תמונה
                       </ButtonImagesUpload>
                     </Fade>
                     <Fade right>
                       <ButtonImagesUpload
                         style={{
+                          backgroundColor: "#3225bf",
+                          color: "white",
                           marginTop: "1rem",
                         }}
                         onClick={() => {
-                          onImageRemove(0);
-
-                          setSelectedImg(false);
+                          onImageRemove(index);
+                          setDisplayAddButton(true);
                         }}
                       >
-                        <CgPlayListRemove size={30} color="rgb(0, 128, 255)" />
+                        <AiFillDelete size={30} color="white" />
                         הסר תמונה
                       </ButtonImagesUpload>
                     </Fade>
                     <Fade bottom>
                       <ButtonImagesUpload
-                        onClick={() => {
-                          setSelectedImg(true);
-                          setPopUpImagesUploading(false);
-                        }}
+                        onClick={() => setImagesUploading(false)}
                         style={{
+                          backgroundColor: "#3225bf",
+                          color: "white",
                           marginTop: "1rem",
                         }}
                       >
-                        <BsPatchCheckFill size={30} color="rgb(0, 179, 0)" />
+                        <BsPatchCheckFill size={30} color="white" />
                         בחר תמונה
                       </ButtonImagesUpload>
                     </Fade>
@@ -138,4 +126,4 @@ const ImagesUploading = ({
   );
 };
 
-export default ImagesUploading;
+export default ImagesUploadEmployee;

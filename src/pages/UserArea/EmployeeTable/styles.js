@@ -96,8 +96,7 @@ export const ContainerInputAddForm = styled.div`
   width: 100%;
   height: 4vh;
   min-height: 2.3rem;
-  border: 2px solid #3225bf;
-  border-radius: 10px;
+  border-bottom: 2px solid #3225bf;
   padding: 0.3rem;
   transition: 0.5s;
   &:hover {
@@ -120,22 +119,18 @@ export const InputAddForm = styled.input`
   }
 `;
 
-export const InputAddImageFile = styled.input`
-  color: #3225bf;
-  ::-webkit-file-upload-button {
-    visibility: hidden;
-  }
-  ::before {
-    content: "בחר תמונה (לא חובה)";
-    display: inline-block;
-    color: #3225bf;
-    outline: none;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 10pt;
-  }
+export const InputAddImageFile = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-right: 0.5rem;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  color: antiquewhite;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
 `;
 
 export const ContainerInputAddImageFile = styled(ContainerInputAddForm)`
@@ -169,4 +164,13 @@ export const TextNameMessageSuccess = styled.div`
   color: #14a34b;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: bold;
+`;
+
+export const AddFormEmployee = styled.form`
+  display: ${(props) => (props.imagesUploading ? "none" : "flex")};
+  height: 24rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 80%;
 `;

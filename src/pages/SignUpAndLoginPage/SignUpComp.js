@@ -12,7 +12,7 @@ import {
 } from "./styles";
 import { FaPhone } from "react-icons/fa";
 import { RiUserAddFill } from "react-icons/ri";
-import { MdEmail } from "react-icons/md";
+import { SiGmail } from "react-icons/si";
 import { BsImageFill } from "react-icons/bs";
 import { FaRegIdCard, FaUserTie } from "react-icons/fa";
 import { MdOutlinePassword } from "react-icons/md";
@@ -201,7 +201,7 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
               />
               <ContainerIconAndLind>
                 <SideLine />
-                <MdEmail size={25} color="#87bcde" />
+                <SiGmail size={25} color="#87bcde" />
               </ContainerIconAndLind>
             </ContainerInput>
             <ContainerInput>
@@ -226,11 +226,6 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
                 onClick={() => {
                   {
                     setPopUpImagesUploading(!popUpImagesUploading);
-                    window.scrollTo({
-                      top: 0,
-                      left: 0,
-                      behavior: "smooth",
-                    });
                   }
                 }}
               >

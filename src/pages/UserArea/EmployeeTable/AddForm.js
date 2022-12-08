@@ -1,30 +1,37 @@
 import React, { useState, useEffect } from "react";
+import ImagesUploadEmployee from "../../multipurpose/ImagesUploadEmployee";
 import {
   ContainerIconAndLind,
   SideLine,
   ButtonValidation,
 } from "../../SignUpAndLoginPage/styles";
-import { RiUserAddFill } from "react-icons/ri";
 import { BsImageFill } from "react-icons/bs";
 import { FaUserTie } from "react-icons/fa";
 import { HiAcademicCap } from "react-icons/hi";
 import { TfiMoney } from "react-icons/tfi";
 import { MdEmail } from "react-icons/md";
 import { RiUserFollowFill } from "react-icons/ri";
+import { BiCheck } from "react-icons/bi";
 import {
   ContainerInputAddForm,
   InputAddForm,
-  InputAddImageFile,
-  ContainerInputAddImageFile,
   ContainerMessageSuccess,
   TextNameMessageSuccess,
+  AddFormEmployee,
 } from "./styles";
 import { Fade, Zoom } from "react-reveal";
-import { addEmployee } from "../../apis/auth";
+import { addEmployee } from "../../apis/table";
+import {
+  ContainerInputImageFile,
+  InputImageFile,
+} from "../../SignUpAndLoginPage/styles";
 
 const AddForm = () => {
-  const [imageUrl, setImageUrl] = useState();
+  const [imageUrl, setImageUrl] = useState(null);
+  const [url, setUrl] = useState(null);
   const [messageSuccess, setMessageSuccess] = useState();
+  const [imagesUploading, setImagesUploading] = useState(false);
+  const [selectedImg, setSelectedImg] = useState(false);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -44,7 +51,7 @@ const AddForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await addEmployee(fullName, role, salary, email, imageUrl);
+    const response = await addEmployee(fullName, role, salary, email, url);
     if (response) {
       setMessageSuccess(true);
       setTimeout(() => {
@@ -55,124 +62,147 @@ const AddForm = () => {
     }
   };
 
-  useEffect(() => {}, [handleSubmit]);
-
-  console.log(imageUrl);
+  useEffect(() => {
+    setUrl(imageUrl);
+  }, [imageUrl]);
 
   return (
     <>
       {!messageSuccess ? (
         <Fade top>
-          <form
-            onSubmit={handleSubmit}
+          <div
             style={{
-              height: "26rem",
+              width: "100%",
               display: "flex",
-              flexDirection: "column",
+              justifyContent: "center",
               alignItems: "center",
-              justifyContent: "space-evenly",
-              width: "80%",
             }}
           >
-            <div
-              style={{
-                backgroundColor: "rgb(0, 76, 175, 0.2)",
-                padding: "1rem",
-                borderRadius: "10px",
-              }}
+            <AddFormEmployee
+              imagesUploading={imagesUploading}
+              onSubmit={handleSubmit}
             >
-              <RiUserAddFill size={25} color="#3225bf" />
-            </div>
-            <ContainerInputAddForm>
-              <InputAddForm
-                onChange={onChange}
-                name="fullName"
-                placeholder="שם מלא"
-              />
-              <ContainerIconAndLind>
-                <SideLine
-                  style={{
-                    borderLeft: "2px solid #3225bf",
-                  }}
+              <ContainerInputAddForm>
+                <InputAddForm
+                  onChange={onChange}
+                  name="fullName"
+                  placeholder="שם מלא"
                 />
-                <FaUserTie size={25} color="#3225bf" />
-              </ContainerIconAndLind>
-            </ContainerInputAddForm>
-            <ContainerInputAddForm>
-              <InputAddForm
-                onChange={onChange}
-                name="role"
-                placeholder="תפקיד"
-              />
-              <ContainerIconAndLind>
-                <SideLine
-                  style={{
-                    borderLeft: "2px solid #3225bf",
-                  }}
+                <ContainerIconAndLind>
+                  <SideLine
+                    style={{
+                      borderLeft: "2px solid #3225bf",
+                    }}
+                  />
+                  <FaUserTie size={25} color="#3225bf" />
+                </ContainerIconAndLind>
+              </ContainerInputAddForm>
+              <ContainerInputAddForm>
+                <InputAddForm
+                  onChange={onChange}
+                  name="role"
+                  placeholder="תפקיד"
                 />
-                <HiAcademicCap size={25} color="#3225bf" />
-              </ContainerIconAndLind>
-            </ContainerInputAddForm>
-            <ContainerInputAddForm>
-              <InputAddForm
-                onChange={onChange}
-                name="salary"
-                placeholder="שכר"
-              />
-              <ContainerIconAndLind>
-                <SideLine
-                  style={{
-                    borderLeft: "2px solid #3225bf",
-                  }}
+                <ContainerIconAndLind>
+                  <SideLine
+                    style={{
+                      borderLeft: "2px solid #3225bf",
+                    }}
+                  />
+                  <HiAcademicCap size={25} color="#3225bf" />
+                </ContainerIconAndLind>
+              </ContainerInputAddForm>
+              <ContainerInputAddForm>
+                <InputAddForm
+                  onChange={onChange}
+                  name="salary"
+                  placeholder="שכר"
                 />
-                <TfiMoney size={25} color="#3225bf" />
-              </ContainerIconAndLind>
-            </ContainerInputAddForm>
-            <ContainerInputAddForm>
-              <InputAddForm
-                onChange={onChange}
-                name="email"
-                placeholder="אימייל"
-              />
-              <ContainerIconAndLind>
-                <SideLine
-                  style={{
-                    borderLeft: "2px solid #3225bf",
-                  }}
+                <ContainerIconAndLind>
+                  <SideLine
+                    style={{
+                      borderLeft: "2px solid #3225bf",
+                    }}
+                  />
+                  <TfiMoney size={25} color="#3225bf" />
+                </ContainerIconAndLind>
+              </ContainerInputAddForm>
+              <ContainerInputAddForm>
+                <InputAddForm
+                  onChange={onChange}
+                  name="email"
+                  placeholder="אימייל"
                 />
-                <MdEmail size={25} color="#3225bf" />
-              </ContainerIconAndLind>
-            </ContainerInputAddForm>
-            <ContainerInputAddImageFile>
-              <InputAddImageFile
-                onChange={(e) =>
-                  setImageUrl(URL.createObjectURL(e.target.files[0]))
-                }
+                <ContainerIconAndLind>
+                  <SideLine
+                    style={{
+                      borderLeft: "2px solid #3225bf",
+                    }}
+                  />
+                  <MdEmail size={25} color="#3225bf" />
+                </ContainerIconAndLind>
+              </ContainerInputAddForm>
+              <ContainerInputImageFile
                 style={{
-                  width: "8.3rem",
+                  borderRadius: "0px",
+                  color: "#3225bf",
+                  borderBottom: "2px solid #3225bf",
+                  fontFamily: `"Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif`,
                 }}
-                type="file"
-              />
-              <ContainerIconAndLind>
-                <SideLine
+              >
+                <InputImageFile
                   style={{
-                    borderLeft: "2px solid #3225bf",
+                    color: "#3225bf",
+                    fontWeight: "bold",
                   }}
-                />
-                <BsImageFill size={22} color="#3225bf" />
-              </ContainerIconAndLind>
-            </ContainerInputAddImageFile>
-            <ButtonValidation
-              type="submit"
-              style={{
-                border: "2px solid #3225bf",
-                color: "#3225bf",
-                borderRadius: "10px",
-              }}
-            >
-              הוסף
-            </ButtonValidation>
-          </form>
+                  onClick={() => {
+                    {
+                      setImagesUploading(!imagesUploading);
+                    }
+                  }}
+                >
+                  {selectedImg ? (
+                    <BiCheck size={35} color="rgb(0, 179, 0)" />
+                  ) : (
+                    " הוסף תמונה (לא חובה)"
+                  )}
+                </InputImageFile>
+                <ContainerIconAndLind>
+                  <SideLine
+                    style={{
+                      marginRight: "0.5rem",
+                      borderLeft: "2px solid #3225bf",
+                    }}
+                  />
+                  <BsImageFill
+                    style={{
+                      marginRight: "0.1rem",
+                    }}
+                    size={22}
+                    color="#3225bf"
+                  />
+                </ContainerIconAndLind>
+              </ContainerInputImageFile>
+              <ButtonValidation
+                type="submit"
+                style={{
+                  border: "none",
+                  backgroundColor: "rgba(64, 153, 255, 0.150)",
+                  letterSpacing: "2px",
+                  color: "#3225bf",
+                  borderRadius: "5px",
+                }}
+              >
+                הוסף
+              </ButtonValidation>
+            </AddFormEmployee>
+            {imagesUploading && (
+              <ImagesUploadEmployee
+                setImageUrl={setImageUrl}
+                setImagesUploading={setImagesUploading}
+              />
+            )}
+          </div>
         </Fade>
       ) : (
         <Zoom>

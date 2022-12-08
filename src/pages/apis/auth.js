@@ -28,6 +28,23 @@ export const signUp = async (
   }
 };
 
+export const login = async (email, password) => {
+  try {
+    const response = await Axios.post(
+      `${process.env.REACT_APP_BASE_URL}/login`,
+      {
+        email,
+        password,
+      }
+    );
+    const token = response.data;
+    localStorage.setItem("token", token);
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
+
 export const sendSms = async (phoneNumber) => {
   await Axios.post(`${process.env.REACT_APP_BASE_URL}/send-sms`, {
     phoneNumber,
@@ -45,35 +62,5 @@ export const checkOptCode = async (userCode) => {
     return true;
   } catch (error) {
     return false;
-  }
-};
-
-export const addEmployee = async (fullName, role, salary, email, imageUrl) => {
-  try {
-    const response = await Axios.post(
-      `${process.env.REACT_APP_BASE_URL}/create-user-employees`,
-      {
-        fullName,
-        role,
-        salary,
-        email,
-        imageUrl,
-      }
-    );
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const getEmployees = async () => {
-  try {
-    const response = await Axios.get(
-      `${process.env.REACT_APP_BASE_URL}/get-employees`
-    );
-    return response.data;
-  } catch (error) {
-    console.log(error);
-    return [];
   }
 };

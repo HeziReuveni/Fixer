@@ -51,7 +51,7 @@ const AddUserToList = () => {
       {displayIcon ? (
         <ButtonAddUser onClick={() => setDisplayIcon(false)}>
           <Fade>
-            <RiUserAddFill size={25} color="#3225bf" />
+            <RiUserAddFill size={35} color="#3225bf" />
           </Fade>
         </ButtonAddUser>
       ) : null}

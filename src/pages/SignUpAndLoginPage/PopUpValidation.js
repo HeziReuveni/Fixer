@@ -16,18 +16,9 @@ import { MdPhonelinkLock } from "react-icons/md";
 import { TiWarning } from "react-icons/ti";
 import { Zoom, Fade } from "react-reveal";
 import { checkOptCode } from "../apis/auth";
-import { signUp } from "../apis/auth";
 import { useHistory } from "react-router-dom";
 
-const PopUpValidation = ({
-  setPopUp,
-  fullName,
-  phoneNumber,
-  password,
-  email,
-  idNumber,
-  imgUrl,
-}) => {
+const PopUpValidation = ({ setPopUp }) => {
   const [optCode, setOptCode] = useState();
   const [resultValidation, setResultValidation] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);

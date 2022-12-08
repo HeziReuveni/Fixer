@@ -15,7 +15,8 @@ import { TiInfoLarge } from "react-icons/ti";
 import { ImHome } from "react-icons/im";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../context/context";
-import { getEmployees } from "../../apis/auth";
+import { getEmployees } from "../../apis/table";
+import gif from "./gifs/loading.gif";
 
 const EmployeeListToMobile = () => {
   const { employees, setEmployees } = useContext(UserContext);
@@ -33,9 +34,7 @@ const EmployeeListToMobile = () => {
       setEmployees(response);
     };
     fetchEmployees();
-  }, []);
-
-  console.log(employees);
+  }, [employees]);
 
   return (
     <div>
@@ -78,6 +77,18 @@ const EmployeeListToMobile = () => {
               ))}
           </ContainerUl>
         </Zoom>
+        {employees === null && (
+          <img
+            width="200"
+            src={gif}
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translateX(-50%) translateY(-50%)",
+            }}
+          />
+        )}
       </div>
     </div>
   );
