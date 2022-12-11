@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <div
       style={{
-        height: "110vh",
+        height: "100vh",
       }}
       className="home"
     >
