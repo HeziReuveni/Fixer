@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import img from "../UserPrivateArea/gifs/unuser.png";
 import {
   ContainerTitle,
@@ -17,8 +17,12 @@ import { useHistory } from "react-router-dom";
 import { UserContext } from "../../context/context";
 import { getEmployees } from "../../apis/table";
 import gif from "./gifs/loading.gif";
+import PopUpEmployeeDetails from "./PopUpEmployeeDetails";
+import { getSingleEmployee } from "../../apis/table";
 
 const EmployeeListToMobile = () => {
+  const [openPopUpDetails, setOpenPupUpDetails] = useState(false);
+  const [employeeDetails, setEmployeeDetails] = useState([]);
   const { employees, setEmployees } = useContext(UserContext);
   const url = (wrap = false) =>
     `${
@@ -34,10 +38,24 @@ const EmployeeListToMobile = () => {
       setEmployees(response);
     };
     fetchEmployees();
-  }, [employees]);
+  }, []);
+
+  const handleEmployeeDetails = async (id) => {
+    setOpenPupUpDetails(true);
+    const result = await getSingleEmployee(id);
+    setEmployeeDetails(result);
+  };
 
   return (
     <div>
+      {openPopUpDetails && (
+        <PopUpEmployeeDetails
+          setOpenPupUpDetails={setOpenPupUpDetails}
+          employees={employees}
+          employeeDetails={employeeDetails}
+          setEmployeeDetails={setEmployeeDetails}
+        />
+      )}
       <ButtonReturnHomePage>
         <ImHome onClick={() => history.push("/user-area")} />
       </ButtonReturnHomePage>
@@ -60,7 +78,10 @@ const EmployeeListToMobile = () => {
               employees.map((item, key) => (
                 <ContainerLi key={key}>
                   <ContainerIconRow>
-                    <TiInfoLarge size={25} />
+                    <TiInfoLarge
+                      size={25}
+                      onClick={() => handleEmployeeDetails(item._id)}
+                    />
                   </ContainerIconRow>
                   <ContainerTextRow>
                     <div

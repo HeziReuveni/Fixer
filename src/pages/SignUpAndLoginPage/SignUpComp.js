@@ -37,7 +37,7 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
     email: "",
     idNumber: "",
   });
-  const { setName, setImgUrl, imgUrl } = useContext(UserContext);
+  const { setImgUrl, imgUrl } = useContext(UserContext);
   const { fullName, phoneNumber, password, email, idNumber } = formDataSignUp;
 
   const onChange = (e) => {

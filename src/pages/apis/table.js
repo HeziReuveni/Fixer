@@ -19,6 +19,21 @@ export const addEmployee = async (fullName, role, salary, email, imageUrl) => {
   }
 };
 
+export const getSingleEmployee = async (id) => {
+  try {
+    const response = await Axios.post(
+      `${process.env.REACT_APP_BASE_URL}/get-single-employee`,
+      {
+        id,
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+
 export const getEmployees = async () => {
   try {
     const response = await Axios.get(

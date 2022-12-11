@@ -174,3 +174,29 @@ export const AddFormEmployee = styled.form`
   justify-content: space-evenly;
   width: 80%;
 `;
+
+export const ContainerImageAndTitleEmployee = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+  height: 40vh;
+`;
+
+export const ContainerDetailsEmployee = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: space-evenly;
+  width: 80%;
+  height: 40vh;
+`;
+
+export const ImageEmployeeDetails = styled.img`
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  border: thick double rgba(0, 67, 143, 0.4);
+  padding: 0.1rem;
+`;
