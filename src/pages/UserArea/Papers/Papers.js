@@ -32,29 +32,28 @@ const Papers = () => {
 
   const downloadFile = () => {
     setReadyToPrint(true);
-    setTimeout(() => {
-      html2canvas(invoiceRef.current).then((canvas) => {
-        //Returns the image data URL, parameter: image format and clarity (0-1)
-        var pageData = canvas.toDataURL("image/jpeg", 0.5);
 
-        //Default vertical direction, size ponits, format a4[595.28,841.89]
-        var pdf = new jsPDF("", "pt", "a4");
+    html2canvas(invoiceRef.current).then((canvas) => {
+      //Returns the image data URL, parameter: image format and clarity (0-1)
+      var pageData = canvas.toDataURL("image/jpeg", 0.5);
 
-        //Two parameters after addImage control the size of the added image, where the page height is compressed according to the width-height ratio column of a4 paper.
-        pdf.addImage(
-          pageData,
-          "JPEG",
-          30,
-          0,
-          500,
-          600
-          //595.28,
-          //(592.28 / canvas.width) * canvas.height
-        );
+      //Default vertical direction, size ponits, format a4[595.28,841.89]
+      var pdf = new jsPDF("", "pt", "a4");
 
-        pdf.save("Fixer.pdf");
-      });
-    }, 1000);
+      //Two parameters after addImage control the size of the added image, where the page height is compressed according to the width-height ratio column of a4 paper.
+      pdf.addImage(
+        pageData,
+        "JPEG",
+        45,
+        0,
+        500,
+        600
+        //595.28,
+        //(592.28 / canvas.width) * canvas.height
+      );
+
+      pdf.save("Fixer.pdf");
+    });
   };
 
   const handleOpenModal = () => {
@@ -144,7 +143,7 @@ const Papers = () => {
           }}
         >
           <div>חשבונית מס' : {number}</div>
-          <div>מס' עוסק : 435555445</div>
+          <div>מס עוסק : 435555445</div>
         </ContainerSecondDetails>
         <ContainerThirdDetails>
           <div>
@@ -175,6 +174,7 @@ const Papers = () => {
             פרטים
           </div>
           <textarea
+            dir="rtl"
             style={{
               paddingRight: "0.5rem",
               marginTop: "0.5rem",
