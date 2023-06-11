@@ -19,6 +19,7 @@ const TopNavbar = ({ fullName, imgUrl }) => {
 
   const logOut = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("counter");
     setEmployees(null);
     history.push("/");
   };
@@ -44,7 +45,7 @@ const TopNavbar = ({ fullName, imgUrl }) => {
               <UserImage src={imgUrl ? imgUrl : img} />
             </div>
           </ContainerTopNavbar>
-          <WaveBorder upperColor="#3225bf" lowerColor="white" />
+          <WaveBorder upperColor="#0049B7" lowerColor="white" />
         </div>
       </Fade>
     </div>

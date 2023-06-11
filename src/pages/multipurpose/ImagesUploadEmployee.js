@@ -49,6 +49,7 @@ const ImagesUploadEmployee = ({ setImageUrl, setImagesUploading }) => {
                   style={{
                     backgroundColor: "#3225bf",
                     color: "white",
+                    fontWeight: "bold",
                   }}
                   onClick={onImageUpload}
                   {...dragProps}
@@ -79,6 +80,7 @@ const ImagesUploadEmployee = ({ setImageUrl, setImagesUploading }) => {
                         style={{
                           backgroundColor: "#3225bf",
                           color: "white",
+                          fontWeight: "bold",
                         }}
                         onClick={() => onImageUpdate(index)}
                       >
@@ -92,6 +94,7 @@ const ImagesUploadEmployee = ({ setImageUrl, setImagesUploading }) => {
                           backgroundColor: "#3225bf",
                           color: "white",
                           marginTop: "1rem",
+                          fontWeight: "bold",
                         }}
                         onClick={() => {
                           onImageRemove(index);
@@ -109,6 +112,7 @@ const ImagesUploadEmployee = ({ setImageUrl, setImagesUploading }) => {
                           backgroundColor: "#3225bf",
                           color: "white",
                           marginTop: "1rem",
+                          fontWeight: "bold",
                         }}
                       >
                         <BsPatchCheckFill size={30} color="white" />

@@ -1,27 +1,62 @@
 import styled from "styled-components";
 
-export const ContainerBlocks = styled.div`
+export const ContainerBusinessDetails = styled.div`
+  width: 100%;
+  height: 15vh;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
-  width: 80%;
-  height: 30vh;
-  border: 2px solid green;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: 0.5px solid gray;
 `;
 
-export const Block = styled.div`
+export const ContainerSecondDetails = styled.div`
   height: 10vh;
-  width: 10vw;
-  position: static;
-  top: 0;
-  left: 0;
-  background-color: red;
-  &:hover {
-    background-color: blue;
-    position: absolute;
-    height: 20vh;
-    width: 20vw;
-    transition: 0.5s;
-  }
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+export const ContainerThirdDetails = styled.div`
+  height: 10vh;
+  width: 95%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  flex-direction: column;
+`;
+
+export const GeneralDetails = styled.div`
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+`;
+
+export const EndDetails = styled.div`
+  width: 95%;
+  height: 15vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+export const ContainerDateAndSignature = styled.div`
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+export const InputDetails = styled.input`
+  line-height: 30px;
+  border-bottom: 2px solid gray;
+  border: none;
+  outline: none;
+  text-align: right;
 `;

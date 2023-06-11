@@ -1,10 +1,10 @@
 import React from "react";
 import { ContainerBottomNavbar, ContainerIconBottomNavbar } from "./styles";
-import { CiCalculator2 } from "react-icons/ci";
+import { TbMathSymbols } from "react-icons/tb";
 import { BsTable } from "react-icons/bs";
 import { GiPapers } from "react-icons/gi";
 import { HiOutlinePaperClip } from "react-icons/hi";
-import { TfiHelp } from "react-icons/tfi";
+import { IoIosHelpBuoy } from "react-icons/io";
 import { Fade } from "react-reveal";
 import { Link } from "react-router-dom";
 
@@ -30,27 +30,27 @@ const BottomNavbar = () => {
         >
           <Link to="/help">
             <ContainerIconBottomNavbar>
-              <TfiHelp size={25} />
+              <IoIosHelpBuoy size={30} />
             </ContainerIconBottomNavbar>
           </Link>
           <Link to="/papers">
             <ContainerIconBottomNavbar>
-              <HiOutlinePaperClip size={25} />
+              <HiOutlinePaperClip size={30} />
             </ContainerIconBottomNavbar>
           </Link>
-          <Link to="/papers">
+          {/* <Link to="/papers">
             <ContainerIconBottomNavbar>
-              <GiPapers size={25} />
+              <GiPapers size={30} />
             </ContainerIconBottomNavbar>
-          </Link>
+          </Link> */}
           <Link to="/employee-table">
             <ContainerIconBottomNavbar>
-              <BsTable size={25} />
+              <BsTable size={30} />
             </ContainerIconBottomNavbar>
           </Link>
           <Link to="/calculator">
             <ContainerIconBottomNavbar>
-              <CiCalculator2 size={25} />
+              <TbMathSymbols size={30} />
             </ContainerIconBottomNavbar>
           </Link>
         </ContainerBottomNavbar>

@@ -11,12 +11,15 @@ export const ContainerTitle = styled.div`
   align-items: center;
   justify-content: center;
   height: 15vh;
-  background-color: #3225bf;
+  background-color: #0049b7;
   width: 100%;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: whitesmoke;
   letter-spacing: 2px;
+  @media (min-width: 840px) {
+    font-size: 3rem;
+  }
 `;
 
 export const ContainerUl = styled.div`
@@ -35,7 +38,7 @@ export const ContainerLi = styled.li`
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  background-color: #3225bf;
+  background-color: #0049b7;
   color: whitesmoke;
   margin-top: 1rem;
   height: 15vh;
@@ -77,6 +80,17 @@ export const ButtonAddUser = styled.button`
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(5px);
 `;
+export const OpenSearchUser = styled.button`
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+`;
 
 export const ContainerAddForm = styled.div`
   position: fixed;
@@ -96,7 +110,7 @@ export const ContainerInputAddForm = styled.div`
   width: 100%;
   height: 4vh;
   min-height: 2.3rem;
-  border-bottom: 2px solid #3225bf;
+  border-bottom: 2px solid #0049b7;
   padding: 0.3rem;
   transition: 0.5s;
   &:hover {
@@ -106,14 +120,14 @@ export const ContainerInputAddForm = styled.div`
 
 export const InputAddForm = styled.input`
   text-align: right;
-  color: #3225bf;
+  color: #0049b7;
   width: 90%;
   height: 80%;
   outline: none;
   border: none;
   background: none;
   ::placeholder {
-    color: #3225bf;
+    color: #0049b7;
     letter-spacing: 1px;
     font-weight: bold;
   }
@@ -147,6 +161,7 @@ export const ButtonReturnHomePage = styled(ContainerIconRow)`
   right: 1rem;
   top: 1rem;
   z-index: 1;
+  cursor: pointer;
 `;
 
 export const ContainerMessageSuccess = styled.div`
@@ -181,7 +196,7 @@ export const ContainerImageAndTitleEmployee = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 80%;
-  height: 40vh;
+  height: 42vh;
 `;
 
 export const ContainerDetailsEmployee = styled.div`
@@ -189,14 +204,93 @@ export const ContainerDetailsEmployee = styled.div`
   flex-direction: column;
   text-align: right;
   justify-content: space-evenly;
-  width: 80%;
-  height: 40vh;
+  max-width: 100%;
+  height: 28vh;
 `;
 
 export const ImageEmployeeDetails = styled.img`
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-  border: thick double rgba(0, 67, 143, 0.4);
-  padding: 0.1rem;
+  height: 180px;
+  width: 180px;
+  border-radius: 100%;
+  border: thick double rgba(255, 255, 255, 0.3);
+`;
+
+export const InputSearch = styled.input`
+  width: 70%;
+  height: 80%;
+  background-color: rgb(50, 37, 191);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: whitesmoke;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  ::placeholder {
+    color: whitesmoke;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+`;
+
+export const TitleName = styled.div`
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  color: rgba(80, 80, 80);
+  width: 100%;
+  text-align: center;
+  padding: 0.2rem;
+`;
+
+export const MiniTitle = styled.span`
+  font-size: 1.3rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: whitesmoke;
+`;
+
+export const ContainerButtons = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+  height: 10vh;
+`;
+
+export const ContainerIcons = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  padding: 0.6rem;
+`;
+
+export const PopUpEmployeeDeleted = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 3;
+  height: 100vh;
+  width: 100%;
+  backdrop-filter: blur(50px);
+`;
+
+export const EditInput = styled.input`
+  outline: none;
+  border: none;
+  color: whitesmoke;
+  background: #0049b7;
+  font-size: 1rem;
+  height: 5vh;
+  border-radius: 5px;
+  padding-right: 0.5rem;
+  text-align: right;
 `;

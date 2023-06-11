@@ -14,6 +14,10 @@ export const ButtonImagesUpload = styled.button`
   letter-spacing: 1px;
   background-color: rgba(255, 255, 255, 0.05);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  cursor: pointer;
+  @media (min-width: 840px) {
+    width: 20vw;
+  }
 `;
 
 export const ContainerDisplayUploadImage = styled.div`

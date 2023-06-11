@@ -18,6 +18,9 @@ export const Form = styled.form`
   border-radius: 30px;
   width: 85vw;
   margin-bottom: 2rem;
+  @media (min-width: 840px) {
+    width: 40vw;
+  }
 `;
 
 export const ContainerTitleForm = styled.div`
@@ -93,6 +96,9 @@ export const ContainerBottomService = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (min-width: 840px) {
+    width: 40vw;
+  }
 `;
 
 export const ContainerServiceComp = styled.div`
@@ -121,6 +127,10 @@ export const ButtonLoginAndSignUpPage = styled.button`
   border-radius: 5px;
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
+  }
+  cursor: pointer;
+  @media (min-width: 840px) {
+    width: 15vw;
   }
 `;
 
@@ -239,4 +249,21 @@ export const ParaError = styled.p`
   color: #e41c3d;
   font-weight: bold;
   font-family: "Open Sans", sans-serif;
+`;
+
+export const ErrorMessageToLogin = styled.div`
+  position: absolute;
+  z-index: 3;
+  right: 10vw;
+  top: 40px;
+  height: 10vh;
+  width: 80vw;
+  color: #e41c3d;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.5px;
 `;

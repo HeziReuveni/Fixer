@@ -48,13 +48,12 @@ const AddUserToList = () => {
           </Fade>
         </RemoveScroll>
       ) : null}
-      {displayIcon ? (
-        <ButtonAddUser onClick={() => setDisplayIcon(false)}>
-          <Fade>
-            <RiUserAddFill size={35} color="#3225bf" />
-          </Fade>
-        </ButtonAddUser>
-      ) : null}
+
+      <ButtonAddUser onClick={() => setDisplayIcon(false)}>
+        <Fade>
+          <RiUserAddFill size={35} color="#3225bf" />
+        </Fade>
+      </ButtonAddUser>
     </>
   );
 };

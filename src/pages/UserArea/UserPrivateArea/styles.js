@@ -13,7 +13,7 @@ export const ContainerUserHomePage = styled.div`
 export const ContainerBottomNavbar = styled.div`
   height: 15vh;
   width: 100%;
-  background-color: #3225bf;
+  background-color: #0049b7;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -21,16 +21,19 @@ export const ContainerBottomNavbar = styled.div`
 `;
 
 export const ContainerTopNavbar = styled.div`
-  height: 40vh;
+  height: 45vh;
   width: 100%;
-  background-color: #3225bf;
+  background-color: #0049b7;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   color: aliceblue;
   font-size: 1.5rem;
   font-family: "Open Sans", sans-serif;
+  @media (min-width: 840px) {
+    font-size: 2rem;
+  }
 `;
 
 export const ContainerCenterContent = styled.div`
@@ -52,8 +55,8 @@ export const ContainerIconBottomNavbar = styled.div`
 `;
 
 export const UserImage = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   border: thick double rgba(255, 255, 255, 0.3);
   padding: 0.1rem;

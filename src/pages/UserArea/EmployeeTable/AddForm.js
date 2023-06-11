@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ImagesUploadEmployee from "../../multipurpose/ImagesUploadEmployee";
 import {
   ContainerIconAndLind,
@@ -7,7 +7,7 @@ import {
 } from "../../SignUpAndLoginPage/styles";
 import { BsImageFill } from "react-icons/bs";
 import { FaUserTie } from "react-icons/fa";
-import { HiAcademicCap } from "react-icons/hi";
+import { HiAcademicCap, HiZoomOut } from "react-icons/hi";
 import { TfiMoney } from "react-icons/tfi";
 import { MdEmail } from "react-icons/md";
 import { RiUserFollowFill } from "react-icons/ri";
@@ -20,19 +20,19 @@ import {
   AddFormEmployee,
 } from "./styles";
 import { Fade, Zoom } from "react-reveal";
-import { addEmployee } from "../../apis/table";
+import { addEmployee, getEmployees } from "../../apis/table";
 import {
   ContainerInputImageFile,
   InputImageFile,
 } from "../../SignUpAndLoginPage/styles";
+import { UserContext } from "../../context/context";
 
 const AddForm = () => {
   const [imageUrl, setImageUrl] = useState(null);
   const [url, setUrl] = useState(null);
   const [messageSuccess, setMessageSuccess] = useState();
   const [imagesUploading, setImagesUploading] = useState(false);
-  const [selectedImg, setSelectedImg] = useState(false);
-
+  const { setEmployees } = useContext(UserContext);
   const [formData, setFormData] = useState({
     fullName: "",
     role: "",
@@ -40,6 +40,11 @@ const AddForm = () => {
     email: "",
   });
   const { fullName, role, salary, email } = formData;
+
+  const fetchEmployees = async () => {
+    const response = await getEmployees();
+    setEmployees(response);
+  };
 
   const onChange = (e) => {
     e.preventDefault();
@@ -53,7 +58,9 @@ const AddForm = () => {
     e.preventDefault();
     const response = await addEmployee(fullName, role, salary, email, url);
     if (response) {
+      setImageUrl(null);
       setMessageSuccess(true);
+      await fetchEmployees();
       setTimeout(() => {
         setMessageSuccess(false);
       }, 3000);
@@ -161,7 +168,7 @@ const AddForm = () => {
                     }
                   }}
                 >
-                  {selectedImg ? (
+                  {imageUrl ? (
                     <BiCheck size={35} color="rgb(0, 179, 0)" />
                   ) : (
                     " הוסף תמונה (לא חובה)"
@@ -209,7 +216,8 @@ const AddForm = () => {
           <ContainerMessageSuccess>
             <RiUserFollowFill color="#14a34b" size={50} />
             <TextNameMessageSuccess>
-              {fullName} נוסף בהצלחה
+              <div>{fullName} </div>
+              <div>נוסף/ה בהצלחה</div>
             </TextNameMessageSuccess>
           </ContainerMessageSuccess>
         </Zoom>

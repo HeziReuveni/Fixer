@@ -1,5 +1,14 @@
 import Axios from "axios";
 
+export const axiosInstance = Axios.create({
+  baseURL: process.env.REACT_APP_BASE_URL,
+});
+
+axiosInstance.interceptors.request.use((request) => {
+  request.headers.Authorization = `Bearer ${localStorage.getItem("token")}`;
+  return request;
+});
+
 export const signUp = async (
   fullName,
   phoneNumber,
@@ -30,13 +39,10 @@ export const signUp = async (
 
 export const login = async (email, password) => {
   try {
-    const response = await Axios.post(
-      `${process.env.REACT_APP_BASE_URL}/login`,
-      {
-        email,
-        password,
-      }
-    );
+    const response = await axiosInstance.post(`/login`, {
+      email,
+      password,
+    });
     const token = response.data;
     localStorage.setItem("token", token);
     return true;
@@ -51,14 +57,22 @@ export const sendSms = async (phoneNumber) => {
   });
 };
 
+export const sendCodeToEmail = async (email) => {
+  try {
+    await axiosInstance.post("/send-email", {
+      email,
+    });
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
+
 export const checkOptCode = async (userCode) => {
   try {
-    const response = await Axios.post(
-      `${process.env.REACT_APP_BASE_URL}/check-code`,
-      {
-        userCode,
-      }
-    );
+    await axiosInstance.post("/check-code", {
+      userCode,
+    });
     return true;
   } catch (error) {
     return false;

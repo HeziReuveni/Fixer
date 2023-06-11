@@ -6,6 +6,9 @@ export const ContainerHomePage = styled.div`
   justify-content: center;
   height: 100%;
   width: 100%;
+  @media (min-width: 840px) {
+    width: 60vw;
+  }
 `;
 
 export const ContainerWelcomeMessage = styled.div`
@@ -38,7 +41,11 @@ export const ButtonHomePage = styled.button`
   font-size: 1.1rem;
   border: none;
   margin-top: 1rem;
+  cursor: pointer;
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
+  }
+  @media (min-width: 840px) {
+    width: 15vw;
   }
 `;

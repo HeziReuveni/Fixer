@@ -17,16 +17,16 @@ import { BsImageFill } from "react-icons/bs";
 import { FaRegIdCard, FaUserTie } from "react-icons/fa";
 import { MdOutlinePassword } from "react-icons/md";
 import { Fade } from "react-reveal";
-import { sendSms } from "../apis/auth";
 import { UserContext } from "../context/context";
 import ImagesUploading from "../multipurpose/ImagesUploading";
 import { FiX } from "react-icons/fi";
 import { BiCheck } from "react-icons/bi";
-import { signUp } from "../apis/auth";
+import { sendCodeToEmail } from "../apis/auth";
 import PopUpValidation from "./PopUpValidation";
 
 const SignUpComp = ({ setSignupPage, setFirstView }) => {
   const [popUp, setPopUp] = useState(false);
+  const [emailExist, setEmailExist] = useState(false);
   const [popUpImagesUploading, setPopUpImagesUploading] = useState(false);
   const [selectedImg, setSelectedImg] = useState(false);
   const [imageUrl, setImageUrl] = useState();
@@ -47,19 +47,14 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
 
   const handleDetailsToSignUp = async (e) => {
     e.preventDefault();
-    const response = await signUp(
-      fullName,
-      phoneNumber,
-      password,
-      email,
-      idNumber,
-      imgUrl
-    );
-    if (response) {
+    const result = await sendCodeToEmail(email);
+    if (result) {
       setPopUp(true);
-      sendSms(phoneNumber);
     } else {
-      setPopUp(false);
+      setEmailExist(true);
+      setTimeout(() => {
+        setEmailExist(false);
+      }, 4000);
     }
   };
 
@@ -87,25 +82,27 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
           </div>
         </Fade>
       )}
-      <Fade>
-        <div
-          style={{
-            position: "absolute",
-            right: "10px",
-            top: "10px",
-            zIndex: "1",
-            color: "#87bcde",
-          }}
-        >
-          <FiX
-            size={20}
-            onClick={() => {
-              setSignupPage(false);
-              setFirstView(true);
+      {!popUp && (
+        <Fade>
+          <div
+            style={{
+              position: "absolute",
+              right: "10px",
+              top: "10px",
+              zIndex: "1",
+              color: "#87bcde",
             }}
-          />
-        </div>
-      </Fade>
+          >
+            <FiX
+              size={20}
+              onClick={() => {
+                setSignupPage(false);
+                setFirstView(true);
+              }}
+            />
+          </div>
+        </Fade>
+      )}
       {popUp && (
         <PopUpValidation
           fullName={fullName}
@@ -120,14 +117,7 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
       )}
 
       <Fade top>
-        <div
-          style={{
-            position: "absolute",
-            top: "5%",
-            left: "7%",
-            transform: "translate(-50%, -50%)",
-          }}
-        >
+        <div>
           <Form
             popUpImagesUploading={popUpImagesUploading}
             popUp={popUp}
@@ -188,21 +178,42 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
                 <MdOutlinePassword size={25} color="#87bcde" />
               </ContainerIconAndLind>
             </ContainerInput>
-            <ContainerInput>
-              <InputForm
-                required
-                onChange={onChange}
-                name="email"
-                value={email}
-                style={{
-                  textAlign: "right",
-                }}
-                placeholder="אימייל"
-              />
-              <ContainerIconAndLind>
-                <SideLine />
-                <SiGmail size={25} color="#87bcde" />
-              </ContainerIconAndLind>
+            <ContainerInput
+              style={{
+                borderBottom: !emailExist
+                  ? "2px solid #87bcde"
+                  : "2px solid rgb(255, 76, 76)",
+              }}
+            >
+              {!emailExist ? (
+                <>
+                  <InputForm
+                    required
+                    onChange={onChange}
+                    name="email"
+                    value={email}
+                    style={{
+                      textAlign: "right",
+                    }}
+                    placeholder="אימייל"
+                  />
+                  <ContainerIconAndLind>
+                    <SideLine />
+                    <SiGmail size={25} color="#87bcde" />
+                  </ContainerIconAndLind>
+                </>
+              ) : (
+                <Fade right>
+                  <span
+                    style={{
+                      color: "rgb(255, 76, 76)",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    אימייל קיים במערכת. הזן אימייל אחר
+                  </span>
+                </Fade>
+              )}
             </ContainerInput>
             <ContainerInput>
               <InputForm

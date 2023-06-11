@@ -9,6 +9,9 @@ const HomePage = () => {
     <div
       style={{
         height: "110vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
       className="home"
     >

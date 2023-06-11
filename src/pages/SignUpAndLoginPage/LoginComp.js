@@ -8,6 +8,7 @@ import {
   ButtonLoginAndSignUpPage,
   ContainerIconAndLind,
   SideLine,
+  ErrorMessageToLogin,
 } from "./styles";
 import { RiUserFollowFill } from "react-icons/ri";
 import { MdOutlinePassword } from "react-icons/md";
@@ -17,17 +18,23 @@ import { login } from "../apis/auth";
 import { SiGmail } from "react-icons/si";
 import { BsPatchCheckFill } from "react-icons/bs";
 import { useHistory } from "react-router-dom";
+import HeadShake from "react-reveal/HeadShake";
 
 const LoginComp = ({ setLoginPage, setFirstView }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [result, setResult] = useState("");
+  const [error, setError] = useState(true);
   let history = useHistory();
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     const response = await login(email, password);
     setResult(response);
+    setError(response);
+    setTimeout(() => {
+      setError(true);
+    }, 3000);
     if (response) {
       setTimeout(() => {
         history.push("/user-area");
@@ -37,6 +44,11 @@ const LoginComp = ({ setLoginPage, setFirstView }) => {
 
   return (
     <div>
+      {!error && (
+        <ErrorMessageToLogin>
+          <HeadShake>הוזנו פרטים לא תקינים</HeadShake>
+        </ErrorMessageToLogin>
+      )}
       {!result && (
         <Fade>
           <div

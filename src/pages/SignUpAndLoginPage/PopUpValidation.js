@@ -17,8 +17,17 @@ import { TiWarning } from "react-icons/ti";
 import { Zoom, Fade } from "react-reveal";
 import { checkOptCode } from "../apis/auth";
 import { useHistory } from "react-router-dom";
+import { signUp } from "../apis/auth";
 
-const PopUpValidation = ({ setPopUp }) => {
+const PopUpValidation = ({
+  setPopUp,
+  fullName,
+  phoneNumber,
+  password,
+  email,
+  idNumber,
+  imgUrl,
+}) => {
   const [optCode, setOptCode] = useState();
   const [resultValidation, setResultValidation] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
@@ -28,6 +37,7 @@ const PopUpValidation = ({ setPopUp }) => {
     e.preventDefault();
     const result = await checkOptCode(optCode);
     if (result) {
+      await signUp(fullName, phoneNumber, password, email, idNumber, imgUrl);
       setTimeout(() => {
         history.push("/user-area");
       }, 2000);
@@ -40,7 +50,7 @@ const PopUpValidation = ({ setPopUp }) => {
     <div>
       <FixIcon resultValidation={resultValidation}>
         <Zoom>
-          <FiX size={20} color="aliceblue" onClick={() => setPopUp(false)} />
+          <FiX size={20} color="#87bcde" onClick={() => setPopUp(false)} />
         </Zoom>
       </FixIcon>
       <ContainerPopUpValidation>
@@ -61,10 +71,9 @@ const PopUpValidation = ({ setPopUp }) => {
               onSubmit={handleSendOptCode}
             >
               <ContainerTextMessage dir="rtl">
-                שימו לב ברגעים הקרובים ישלח לכם מסרון לנייד עם קוד בעל 4 ספרות
-                לשם אימות, אנה הזינו אותו כאן כדי לסיים את תהליך ההרשמה. במידה
-                ולא קיבלתם מסרון זה יש לוודא כי הוזן מספר פלאפון תקין, ולנסות
-                בשנית.
+                שימו לב ברגעים אלה נשלח לכם הודעה לאימייל עם קוד בעל 6 ספרות לשם
+                אימות, אנה הזינו אותו כאן כדי לסיים את תהליך ההרשמה. במידה ולא
+                קיבלתם הודעה זה יש לוודא כי הוזן אימייל תקין, ולנסות בשנית.
               </ContainerTextMessage>
               {!errorMessage && (
                 <MdPhonelinkLock size={30} color="rgb(0, 179, 0)" />
@@ -85,20 +94,9 @@ const PopUpValidation = ({ setPopUp }) => {
                 onChange={(e) => setOptCode(e.target.value)}
                 dir="rtl"
                 placeholder="הזינו כאן את הקוד"
-                maxLength={4}
+                maxLength={6}
               />
-              <ButtonValidation
-                type="submit"
-                onClick={() =>
-                  window.scrollTo({
-                    top: 0,
-                    left: 0,
-                    behavior: "smooth",
-                  })
-                }
-              >
-                אישור
-              </ButtonValidation>
+              <ButtonValidation type="submit">אישור</ButtonValidation>
             </FormToValidation>
           </ContainerContentPopUp>
         </Zoom>
