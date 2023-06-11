@@ -7,6 +7,9 @@ export const ContainerCalculateBoxes = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  @media (min-width: 840px) {
+    height: 75vh;
+  }
 `;
 
 export const TopBox = styled.div`
@@ -28,7 +31,7 @@ export const Box = styled.div`
   background-color: #0049b7;
   box-shadow: 0px 0px 10px rgb(194, 194, 194);
   @media (min-width: 840px) {
-    width: 50vw;
+    width: 25vw;
   }
 `;
 

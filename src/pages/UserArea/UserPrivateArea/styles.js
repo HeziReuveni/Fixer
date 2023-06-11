@@ -21,7 +21,7 @@ export const ContainerBottomNavbar = styled.div`
 `;
 
 export const ContainerTopNavbar = styled.div`
-  height: 45vh;
+  height: 40vh;
   width: 100%;
   background-color: #0049b7;
   display: flex;

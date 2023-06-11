@@ -36,7 +36,7 @@ const WelcomeMessage = () => {
         <Fade right>
           <ButtonHomePage
             style={{
-              backgroundColor: "rgba(49, 88, 171, 0.175)",
+              backgroundColor: "rgba(255, 255, 255, 0.05)",
             }}
             onClick={loginOnClick}
           >

@@ -331,7 +331,6 @@ const Papers = () => {
                 borderRadius: "0px",
                 color: "white",
                 fontWeight: "bold",
-                width: "40vw",
               }}
             >
               <RiNumbersFill />

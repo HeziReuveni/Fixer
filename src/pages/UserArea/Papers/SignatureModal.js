@@ -31,10 +31,56 @@ function SignatureModal({ isOpen, onClose, onSave }) {
             className: "signature-canvas",
           }}
         />
-        
-        <button onClick={onClose}>ביטול</button>
-        <button onClick={handleClear}>נקה</button>
-        <button onClick={handleSave}>שמור</button>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <button
+            style={{
+              border: "none",
+              backgroundColor: "#015adf",
+              color: "whitesmoke",
+              padding: "1rem",
+              borderRadius: "5px",
+              fontWeight: "bold",
+              cursor: "pointer",
+            }}
+            onClick={onClose}
+          >
+            ביטול
+          </button>
+          <button
+            style={{
+              border: "none",
+              backgroundColor: "#015adf",
+              color: "whitesmoke",
+              padding: "1rem",
+              borderRadius: "5px",
+              fontWeight: "bold",
+              cursor: "pointer",
+            }}
+            onClick={handleClear}
+          >
+            נקה
+          </button>
+          <button
+            style={{
+              border: "none",
+              backgroundColor: "#015adf",
+              color: "whitesmoke",
+              padding: "1rem",
+              borderRadius: "5px",
+              fontWeight: "bold",
+              cursor: "pointer",
+            }}
+            onClick={handleSave}
+          >
+            שמור
+          </button>
+        </div>
       </div>
     </div>
   );

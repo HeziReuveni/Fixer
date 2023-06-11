@@ -97,7 +97,7 @@ const Papers = () => {
       style={{
         backgroundColor: "white",
         fontFamily: `"Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif`,
-        height: "100vh",
+
         width: "100%",
       }}
     >
@@ -221,7 +221,6 @@ const Papers = () => {
               alignItems: "center",
               justifyContent: "space-around",
               flexDirection: "column",
-              height: "25vw",
             }}
           >
             <div
@@ -252,7 +251,13 @@ const Papers = () => {
                   }}
                   onClick={handleOpenModal}
                 >
-                  <FaFileSignature size={35} color="#015adf" />
+                  <FaFileSignature
+                    style={{
+                      cursor: "pointer",
+                    }}
+                    size={35}
+                    color="#015adf"
+                  />
                 </button>
               )}
             </span>
@@ -283,6 +288,7 @@ const Papers = () => {
             padding: "1rem",
             borderRadius: "5px",
             fontWeight: "bold",
+            cursor: "pointer",
           }}
           onClick={() => downloadFile()}
         >

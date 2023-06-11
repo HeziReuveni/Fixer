@@ -66,6 +66,7 @@ const InfoMessage = ({ setInfoMessage }) => {
                     borderRadius: "0px",
                     boxShadow: "0px",
                     letterSpacing: "1px",
+                    cursor: "pointer",
                   }}
                   onClick={() => setInfoMessage(false)}
                 >

@@ -16,7 +16,7 @@ export const ButtonImagesUpload = styled.button`
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   cursor: pointer;
   @media (min-width: 840px) {
-    width: 20vw;
+    width: 15vw;
   }
 `;
 
