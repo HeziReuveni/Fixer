@@ -288,19 +288,6 @@ const Papers = () => {
         >
           PDF הורד כקובץ
         </button>
-        <button
-          style={{
-            border: "none",
-            backgroundColor: "#015adf",
-            color: "whitesmoke",
-            padding: "1rem",
-            borderRadius: "5px",
-            fontWeight: "bold",
-          }}
-          onClick={() => setReadyToPrint(true)}
-        >
-          שתף
-        </button>
       </ContainerDateAndSignature>
     </div>
   );
