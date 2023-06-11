@@ -34,10 +34,25 @@ const WelcomeMessage = () => {
           </ContainerTextMessage>
         </Fade>
         <Fade right>
-          <ButtonHomePage onClick={loginOnClick}>התחברות</ButtonHomePage>
+          <ButtonHomePage
+            style={{
+              backgroundColor: "rgba(49, 88, 171, 0.175)",
+            }}
+            onClick={loginOnClick}
+          >
+            התחברות
+          </ButtonHomePage>
         </Fade>
         <Fade left>
-          <ButtonHomePage onClick={registerOnClick}>הרשמה</ButtonHomePage>
+          <ButtonHomePage
+            style={{
+              background: "none",
+              border: "1px solid whitesmoke",
+            }}
+            onClick={registerOnClick}
+          >
+            הרשמה
+          </ButtonHomePage>
         </Fade>
       </ContainerWelcomeMessage>
     </>

@@ -91,6 +91,7 @@ const SignUpComp = ({ setSignupPage, setFirstView }) => {
               top: "10px",
               zIndex: "1",
               color: "#87bcde",
+              cursor: "pointer",
             }}
           >
             <FiX

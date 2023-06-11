@@ -27,6 +27,9 @@ export const ContainerTextMessage = styled.div`
   width: 100%;
   color: aliceblue;
   text-align: center;
+  @media (min-width: 840px) {
+    width: 40vw;
+  }
 `;
 
 export const ButtonHomePage = styled.button`
@@ -42,9 +45,6 @@ export const ButtonHomePage = styled.button`
   border: none;
   margin-top: 1rem;
   cursor: pointer;
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
   @media (min-width: 840px) {
     width: 15vw;
   }

@@ -58,6 +58,7 @@ const LoginComp = ({ setLoginPage, setFirstView }) => {
               top: "10px",
               zIndex: "3",
               color: "#87bcde",
+              cursor: "pointer",
             }}
           >
             <FiX
