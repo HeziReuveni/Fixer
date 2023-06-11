@@ -31,6 +31,7 @@ function SignatureModal({ isOpen, onClose, onSave }) {
             className: "signature-canvas",
           }}
         />
+        
         <button onClick={onClose}>ביטול</button>
         <button onClick={handleClear}>נקה</button>
         <button onClick={handleSave}>שמור</button>

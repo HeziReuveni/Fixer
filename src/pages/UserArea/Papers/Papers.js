@@ -52,7 +52,7 @@ const Papers = () => {
           //(592.28 / canvas.width) * canvas.height
         );
 
-        pdf.save("stone.pdf");
+        pdf.save("Fixer.pdf");
       });
     }, 1000);
   };
