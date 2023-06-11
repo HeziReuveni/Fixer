@@ -40,7 +40,7 @@ const TopNavbar = ({ fullName, imgUrl }) => {
               backgroundImage: url(true),
             }}
           >
-            {fullName ? <p dir="rtl">ברוך הבא {fullName}</p> : null}
+            {fullName ? <p dir="rtl"> {fullName}</p> : null}
             <div>
               <UserImage src={imgUrl ? imgUrl : img} />
             </div>
