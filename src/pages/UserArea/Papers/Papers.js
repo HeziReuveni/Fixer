@@ -185,7 +185,6 @@ const Papers = () => {
               fontSize: "1.1rem",
               fontFamily: `"Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif`,
             }}
-            dir="rtl"
           ></textarea>
         </GeneralDetails>
         <EndDetails>
