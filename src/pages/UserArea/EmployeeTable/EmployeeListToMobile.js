@@ -10,6 +10,7 @@ import {
   ButtonReturnHomePage,
   OpenSearchUser,
   InputSearch,
+  ContainerSearchInput,
 } from "./styles";
 import WaveBorder from "../../SignUpAndLoginPage/WaveBorder";
 import { Fade, Zoom } from "react-reveal";
@@ -97,20 +98,7 @@ const EmployeeListToMobile = () => {
         >
           {openSearchInput && (
             <Fade>
-              <div
-                style={{
-                  textAlign: "center",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "70%",
-                  height: "8vh",
-                  marginTop: "1rem",
-                  backgroundColor: "rgb(50, 37, 191)",
-                  boxShadow: "0px 0px 10px gray",
-                  borderRadius: "5px",
-                }}
-              >
+              <ContainerSearchInput>
                 <div
                   style={{
                     display: "flex",
@@ -123,6 +111,9 @@ const EmployeeListToMobile = () => {
                   onClick={() => setOpenSearchInput(false)}
                 >
                   <FiX
+                    style={{
+                      cursor: "pointer",
+                    }}
                     onClick={() => setValueSearch("")}
                     size={20}
                     color="whitesmoke"
@@ -135,7 +126,7 @@ const EmployeeListToMobile = () => {
                   dir="rtl"
                   placeholder="הזן את שם העובד"
                 />
-              </div>
+              </ContainerSearchInput>
             </Fade>
           )}
         </div>

@@ -45,7 +45,7 @@ export const deleteEmployee = async (id) => {
   try {
     await axiosInstance.post("/delete-employee", {
       id,
-    });
+});
     return true;
   } catch (error) {
     return false;

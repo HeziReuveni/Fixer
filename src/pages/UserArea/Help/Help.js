@@ -12,6 +12,7 @@ import {
   Text,
   ButtonHelpPage,
   ContainerTextDetails,
+  ButtonSubmitHelp,
 } from "./styles";
 import { useState } from "react";
 import { getUserDetails } from "../../apis/privateArea";
@@ -79,7 +80,7 @@ const Help = () => {
       </Fade>
       <div
         style={{
-          height: "80vh",
+          height: "60vh",
           width: "100vw",
           display: "flex",
           alignItems: "center",
@@ -135,23 +136,15 @@ const Help = () => {
             )}
             {textDisplay ? (
               <Fade right>
-                <div
-                  onClick={handleClick}
+                <ButtonSubmitHelp
                   style={{
                     display: textDisplay2 ? "none" : "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    width: "20vw",
-                    color: "whitesmoke",
-                    fontFamily: `"Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif`,
-                    fontSize: "1.3rem",
-                    backgroundColor: "rgba(255,255,255,0.1)",
-                    padding: "1rem",
                   }}
+                  onClick={handleClick}
                 >
                   <IoIosSend size={25} />
                   <span>שלח</span>
-                </div>
+                </ButtonSubmitHelp>
               </Fade>
             ) : (
               <ButtonHelpPage onClick={() => setTextDisplay(true)}>

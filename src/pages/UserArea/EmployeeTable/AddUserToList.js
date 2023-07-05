@@ -21,6 +21,7 @@ const AddUserToList = () => {
                   top: "10px",
                   right: "10px",
                   zIndex: "3",
+                  cursor: "pointer",
                 }}
               >
                 <FiX size={20} color="#3225bf" />

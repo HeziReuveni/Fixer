@@ -9,6 +9,9 @@ export const ContainerHelpText = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  @media (min-width: 840px) {
+    width: 30vw;
+  }
 `;
 
 export const Text = styled.div`
@@ -16,7 +19,7 @@ export const Text = styled.div`
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 1.2rem;
   text-align: center;
-  padding: 10px;
+  padding: 20px;
 `;
 
 export const ButtonHelpPage = styled.button`
@@ -25,6 +28,7 @@ export const ButtonHelpPage = styled.button`
   font-size: 1.2rem;
   padding: 1rem;
   background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
 `;
 
 export const ContainerTextDetails = styled.div`
@@ -36,4 +40,22 @@ export const ContainerTextDetails = styled.div`
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 1.2rem;
   width: 100%;
+`;
+
+export const ButtonSubmitHelp = styled.div`
+  align-items: center;
+  justify-content: space-between;
+  width: 20vw;
+  color: whitesmoke;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.3rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  @media (min-width: 840px) {
+    width: 10vw;
+  }
 `;

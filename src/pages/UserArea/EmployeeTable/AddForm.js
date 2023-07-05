@@ -198,6 +198,7 @@ const AddForm = () => {
                   letterSpacing: "2px",
                   color: "#3225bf",
                   borderRadius: "5px",
+                  cursor: "pointer",
                 }}
               >
                 הוסף

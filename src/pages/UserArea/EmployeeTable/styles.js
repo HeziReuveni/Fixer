@@ -44,6 +44,9 @@ export const ContainerLi = styled.li`
   height: 15vh;
   border-radius: 5px;
   box-shadow: 0px 0px 10px gray;
+  @media (min-width: 840px) {
+    width: 40vw;
+  }
 `;
 
 export const Image = styled.img`
@@ -67,6 +70,7 @@ export const ContainerIconRow = styled.div`
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 50px;
   padding: 1rem;
+  cursor: pointer;
 `;
 
 export const ButtonAddUser = styled.button`
@@ -79,6 +83,14 @@ export const ButtonAddUser = styled.button`
   border: none;
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(5px);
+  transition: 0.5s;
+  @media (min-width: 840px) {
+    background-color: hsl(226, 100%, 50%, 0.1);
+  }
+  cursor: pointer;
+  &:hover {
+    transform: translateY(-10px);
+  }
 `;
 export const OpenSearchUser = styled.button`
   position: fixed;
@@ -88,8 +100,16 @@ export const OpenSearchUser = styled.button`
   height: 4rem;
   border-radius: 50px;
   border: none;
+  transition: 0.5s;
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(5px);
+  cursor: pointer;
+  @media (min-width: 840px) {
+    background-color: hsl(226, 100%, 50%, 0.1);
+  }
+  &:hover {
+    transform: translateY(-10px);
+  }
 `;
 
 export const ContainerAddForm = styled.div`
@@ -188,6 +208,9 @@ export const AddFormEmployee = styled.form`
   align-items: center;
   justify-content: space-evenly;
   width: 80%;
+  @media (min-width: 840px) {
+    width: 40vw;
+  }
 `;
 
 export const ContainerImageAndTitleEmployee = styled.div`
@@ -261,6 +284,7 @@ export const ContainerButtons = styled.div`
   justify-content: space-around;
   width: 80%;
   height: 10vh;
+  cursor: pointer;
 `;
 
 export const ContainerIcons = styled.div`
@@ -293,4 +317,20 @@ export const EditInput = styled.input`
   border-radius: 5px;
   padding-right: 0.5rem;
   text-align: right;
+`;
+
+export const ContainerSearchInput = styled.div`
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70vw;
+  height: 8vh;
+  margin-top: 1rem;
+  background-color: rgb(50, 37, 191);
+  box-shadow: 0px 0px 10px gray;
+  border-radius: 5px;
+  @media (min-width: 840px) {
+    width: 30vw;
+  }
 `;
