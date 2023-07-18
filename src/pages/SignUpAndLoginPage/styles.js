@@ -18,9 +18,7 @@ export const Form = styled.form`
   border-radius: 30px;
   width: 85vw;
   margin-bottom: 2rem;
-  @media (min-width: 840px) {
-    width: 40vw;
-  }
+  width: 70vmin;
 `;
 
 export const ContainerTitleForm = styled.div`
