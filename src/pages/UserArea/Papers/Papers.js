@@ -143,7 +143,7 @@ const Papers = () => {
           }}
         >
           <div>חשבונית מס' : {number}</div>
-          <div>מס עוסק : 435555445</div>
+          <div>מס עוסק : {userDetails.idNumber}</div>
         </ContainerSecondDetails>
         <ContainerThirdDetails>
           <div>
